@@ -1,0 +1,56 @@
+<div class="container-fluid bg-dark form_container">
+    <form class="needs-validation bg-dark text-white">
+      <legend class="text-center text-info pb-3"> Visit our shop for degustation! </legend>
+        <label for="validationCustom01" aria-label="Name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="validationCustom01" value="" required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+        <div class="mb-3 mt-1">
+          <label for="exampleInputEmail1" class="form-label" required min="3" max="25">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="form-header">
+          <h5 class="form-title text-center fw-bold text-info p-3" id="titleForm">Choice District</h5>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="Pecherskyi">
+          <label class="form-check-label" for="Pecherskyi">
+            Pecherskyi
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="Obolon`skyi">
+          <label class="form-check-label" for="Obolon`skyi">
+            Obolon`skyi
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="Shevchenkivs'kyi" checked>
+          <label class="form-check-label" for="Shevchenkivs'kyi">
+            Shevchenkivs'kyi
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="Desnianskyi" disabled>
+          <label class="form-check-label" for="Desnianskyi">
+            Desnianskyi
+          </label>
+        </div>
+        <hr>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="age" id="flexCheckDefault">
+          <label class="form-check-label mb-5" for="flexCheckDefault">
+            I am already 18 years old.
+          </label>
+        </div>
+    </form>
+
+  <div>
+    <button type="button" class="btn btn-secondary" routerLink="">Close</button>
+    <button type="button" class="btn btn-dark" >Call Me!</button>
+  </div>
+  <button class="btn btn-dark mt-5">{{ date }}</button>
+ </div>
+

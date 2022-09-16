@@ -1,0 +1,39 @@
+<div class="container-fluid bg-dark text-light pb-5"
+
+id="sommelier">
+  <div class="container d-grid gap-4 ml-6 text-dark text-center">
+    <div class="text-header mt-4 lecorte">
+      <h2 class="text-center text-info mb-3 mt-5">
+        Sommelier recommends
+      </h2>
+    </div>
+      <div class="d-flex flex-row justify-content-around flex-wrap gap-4">
+        <div class="row col-sm-12 col-md-6 col-lg-4"
+        *ngFor="let item of sommeilRecommends; let i = index">
+        <div class="card mt-2 border-5 border-info" style="width: 100%;">
+          <img src='{{item.img}}' class="card-img-top img-responsive" alt="vezak">
+          <div class="card-body" >
+            <h5 class="card-title" id="vezak">{{ item.name}}</h5>
+            <h6>{{ item.sort}}</h6>
+            <p class="card-text overflow-hidden">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt eius nisi corporis totam qui eum at reprehenderit.
+            </p>
+            <div
+            class="d-flex flex-row justify-content-center gap-4">
+              <button
+                *ngIf="!item.hadVoted"
+                (click)="onChange(item)"
+                class="btn btn-dark border-5 border-info">
+                I like it!</button>
+                <div
+                class="pointsCounter"
+                *ngIf="item.hadVoted">{{ item.points}}</div>
+              <div
+                *ngIf="item.hadVoted"
+                class="pointsCounter">Great choise!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
