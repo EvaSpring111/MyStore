@@ -1,0 +1,19 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+a:hover,
+a:focus{
+  color: aqua;
+}
+#footer_nav:hover,
+#footer_nav:focus {
+  color: rgb(19, 20, 20);
+
+}
+mat-toolbar-row {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-around;
+  line-height: 20px;
+}
+

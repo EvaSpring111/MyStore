@@ -1,0 +1,74 @@
+<header class="text-center">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-center fixed-top">
+    <div class="container-fluid">
+      <button class="navbar-toggler mx-5" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavy" aria-controls="navbarNavy" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="lecorte navbar-brand text-info mx-4" aria-label="brand_LaCorte" href="https://okwine.ua/market/vinomarket-okwine-na-ul-kalnyshevskogo-6" target="_blank">
+        iCat Store</a>
+      <div class="collapse navbar-collapse " id="navbarNavy">
+        <ul class="nav_font navbar-nav mx-5">
+          <li class="nav-item">
+            <a
+             routerLink=""
+             class="nav-link" aria-current="page" rel="noopener" aria-label="Home" >
+              Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" rel="noopener" aria-label="best_taste"  href="#best_taste">
+              Best Taste</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" rel="noopener" aria-label="collection"  href="#new-collections" aria-label="Collection">
+              Collection</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" rel="noopener" aria-label="supplier" href="#"  target="_blank">
+              Supplier</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://okwine.ua/market/vinomarket-okwine-na-ul-kalnyshevskogo-6"  rel="noopener" aria-label="visit us" target="_blank">
+              Visit us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" rel="noopener" aria-label="+38 (093) 180-10-89"
+            href="tel:8 (812) 123-45-67">Call us!</a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link" rel="noopener" aria-label="Sommelier recommends"
+              routerLink="recomend">
+              Sommelier recommends</a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link" rel="noopener" aria-label="VotesResults"
+              routerLink="votesResults">
+              VotesResults</a>
+          </li>
+          <li>
+            <button class="btn btn-info btn-md border-2 border-light mx-4 my-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <a
+                routerLink=""
+                class="text-decoration-none" aria-label="Check_in">Check In</a>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<main>
+  <app-home></app-home>
+</main>
+<footer>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <a
+      id="footer_nav"
+      class="nav-link" mat-list-item href='{{ link.link }}' *ngFor="let link of links"> {{ link.name }}</a>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</footer>
+
+
