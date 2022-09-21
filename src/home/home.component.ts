@@ -13,9 +13,8 @@ export class HomeComponent implements OnInit {
   constructor( private stuffService: StuffService) { }
 
   ngOnInit(): void {
-
+    this.stuffService
+    .getStuff()
+    .subscribe((data: Stuff[]) => this.stuff = data);
   }
-
-
-
 }

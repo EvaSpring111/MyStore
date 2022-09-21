@@ -6,12 +6,12 @@ import { catchError, map, tap } from 'rxjs/operators';
 import * as rxjs from 'rxjs';
 import { Stuff } from 'src/model/Stuff.interface';
 
-const stuffUrl: string = '/api/stuff';
+const stuffUrl: string = 'https://mate-academy.github.io/react_phone-catalog/api/products.json';
 @Injectable()
 export class StuffService {
   constructor(private http: HttpClient) {}
 
-  getPassengers(): Observable<Stuff[]> {
+  getStuff(): Observable<Stuff[]> {
     return this.http
     .get(stuffUrl).pipe(
      map((response: HttpResponse) => response.json()))
