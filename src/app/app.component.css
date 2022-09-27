@@ -1,5 +1,8 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+.navbar{
+  border-bottom: solid 5px rgb(189, 233, 233);
+}
 
 a:hover,
 a:focus{
@@ -10,10 +13,16 @@ a:focus{
   color: rgb(19, 20, 20);
 
 }
-mat-toolbar-row {
+footer {
+  width: 100vw;
+}
+
+mat-toolbar {
   margin-top: 8px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   line-height: 20px;
+  gap: 55px;
 }
+
 

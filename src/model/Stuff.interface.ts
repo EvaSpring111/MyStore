@@ -1,4 +1,5 @@
 export interface Stuff {
+    qty: number;
     age: number,
     id: string,
     type: string,
@@ -10,4 +11,8 @@ export interface Stuff {
     screen: string,
     capacity: string,
     ram: string,
+}
+
+export interface CartProduct extends Stuff {
+  qty:number;
 }

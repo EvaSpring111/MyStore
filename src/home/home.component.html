@@ -1,5 +1,116 @@
-<ul class="heroes">
-  <li *ngFor="let item of stuff">
-     {{item.id}}
-  </li>
-</ul>
+<div class="container-fluid bg-dark text-light py-5" id="list_Of_devices">
+
+    <div class="row">
+
+        <ul class="col mt-5">
+          <li>wwwwwwwwwwwwwww</li>
+          <li>wwwwwwwwwwwwwww</li>
+          <li>wwwwwwwwwwwwwww</li>
+          <li>wwwwwwwwwwwwwww</li>
+          <li>wwwwwwwwwwwwwww</li>
+          <li>wwwwwwwwwwwwwww</li>
+          <li>wwwwwwwwwwwwwww</li>
+          <li>wwwwwwwwwwwwwww</li>
+          <li>wwwwwwwwwwwwwww</li>
+          <li>wwwwwwwwwwwwwwws</li>
+        </ul>
+
+    <div class="container col-lg-8 d-grid gap-4text-dark text-center">
+    <pagination-controls
+      class="btn-group btn-outline-primary mt-5 my-pagination text-light"
+      (pageChange)="page = $event">
+    </pagination-controls>
+      <div class="d-flex flex-row justify-content-around flex-wrap gap-4">
+        <div
+          class="row col-sm-11 col-md-6 col-lg-6"
+          *ngFor="let item of stuff |
+          paginate: {
+            itemsPerPage: 6,
+            currentPage: page,
+            totalItems: totalLength
+          }">
+        <div
+          class="card mt-2 border-5 border-info mt-5 d-flex flex-row justify-content-between align-items-center h-100"
+          style="width: 100%;"
+          id="mat_card">
+          <img src='/assets/{{item.imageUrl}}'
+            class="img-responsive border border-2 border-dark rounded-circle"
+            alt="mobile picture">
+          <div class="card-body">
+              <a
+                class="text-decoration-none"
+                id="item_name"
+                [title]="item.name + ' details'"
+                [routerLink]="['stuff', item.name]"
+                aria-label="mobile name">
+                  <h3
+                  class="fw-bold">
+                  {{item.name}}
+                  </h3>
+              </a>
+            <div class="d-flex flex-column">
+              <span
+                aria-label="price of device"
+                [style.text-decoration.]="item.discount ?
+                'line-through' :  'none'">
+                Price:  {{ item.price | currency }}
+              </span>
+              <span
+                *ngIf="item.discount > 0"
+                aria-label="discount">
+                Sale: {{ item.discount }} %</span>
+                <span
+                  id="price_with_discont"
+                  *ngIf="item.discount"
+                  aria-label="total price">
+                  New Price: {{ item.price - (item.price  / 100 * item.discount) | currency}}
+              </span>
+          </div>
+        </div>
+         <div
+        class="d-flex flex-column justify-content-center gap-4 mb-3">
+          <button mat-raised-button color="accent" class="buttons_home"
+          aria-label="I like this device">
+          I like it
+        </button>
+        <!--<button
+          mat-raised-button color="primary" class="buttons_home"
+          aria-label="buy this device"
+          (click)="addToCart(item)">
+          Buy it
+        </button>
+      </div> -->
+      </div>
+  </div>
+</div>
+<pagination-controls
+  class="btn-group btn-outline-primary my-5 text-light my-pagination"
+  (pageChange)="page = $event">
+   <!-- <div class="form-inline">
+    <select [value]="productsPerPage" class="form-control"></select>
+    <option value="4">4</option>
+    <option value="6">6</option>
+    <option value="10"10></option>
+  </div> -->
+</pagination-controls>
+    </div>
+
+    <ul class="col mt-5">
+      <li>wwwwwwwwwwwwwww</li>
+      <li>wwwwwwwwwwwwwww</li>
+      <li>wwwwwwwwwwwwwww</li>
+      <li>wwwwwwwwwwwwwww</li>
+      <li>wwwwwwwwwwwwwww</li>
+      <li>wwwwwwwwwwwwwww</li>
+      <li>wwwwwwwwwwwwwww</li>
+      <li>wwwwwwwwwwwwwww</li>
+      <li>wwwwwwwwwwwwwww</li>
+      <li>wwwwwwwwwwwwwwws</li>
+    </ul>
+</div>
+
+</div>
+
+
+
+

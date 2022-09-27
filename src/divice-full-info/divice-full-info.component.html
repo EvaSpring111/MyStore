@@ -1,0 +1,70 @@
+<div class="container-fluid bg-dark text-light py-5" id="list_Of_devices">
+  <mat-card
+      *ngFor="let item of stuff"
+      class="container mt-5 d-flex flex-row justify-content-around"
+      id="mat_card"
+      class="example-card mb-4" id="card_header">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>
+            <a
+            class="text-decoration-none"
+            id="item_name"
+            [title]="item.name + ' details'"
+            aria-label="mobile name">
+            <h3 class="fw-bold">
+            {{item.name}}
+            </h3>
+          </a>
+          </mat-card-title>
+          <mat-card-subtitle>
+            {{item.type}}
+          </mat-card-subtitle>
+          <div class="container d-flex flex-column">
+            <mat-card-subtitle
+            aria-label="price of device"
+            [style.text-decoration.]="item.discount ?
+            'line-through' :  'none'">
+             Price:  {{ item.price | currency }}
+          </mat-card-subtitle>
+          <mat-card-subtitle
+            *ngIf="item.discount > 0"
+            aria-label="discount">
+            Sale: {{ item.discount }} %
+          </mat-card-subtitle>
+
+          <mat-card-subtitle id="price_with_discont"
+          *ngIf="item.discount"
+            aria-label="total price">
+            New Price: {{ item.price - (item.price  / 100 * item.discount) | currency}}
+          </mat-card-subtitle>
+          </div>
+        </mat-card-header>
+          <img mat-card-image
+            src='/assets/{{item.imageUrl}}'
+            class="img-responsive"
+            alt="mobile picture">
+        <mat-card-content>
+          <p class="text-center">
+            {{ item.snippet}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button
+            mat-raised-button color="accent" class="buttons_home"
+            aria-label="I like this device">
+            I like it
+            </button>
+            <button
+            type="button"
+            mat-raised-button color="primary"
+            class="buttons_home"
+            aria-label="buy this device"
+            (click)="addToCart(item)">
+            <mat-icon>add_shopping_cart</mat-icon>
+            Add to cart
+           </button>
+        </mat-card-actions>
+      </mat-card>
+</div>
+

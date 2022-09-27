@@ -1,0 +1,38 @@
+#mat_card {
+  width: 25%;
+  min-width: 350px;
+
+  font-size: .81rem;
+  line-height: 1.5;
+  letter-spacing: 1px;
+}
+
+a:hover,
+a:focus {
+  color: rgb(55, 145, 197);
+}
+
+a, span {
+  color: rgb(1, 12, 12);
+}
+
+.buttons_home:hover,
+.buttons_home:focus {
+  transform: translateY(-0.25rem);
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+}
+
+img {
+  width: 50px;
+  aspect-ratio: 1;
+}
+mat-card-subtitle{
+  font-style: italic;
+}
+
+#price_with_discont {
+  color: brown;
+  font-weight: 700;
+}
+
+
