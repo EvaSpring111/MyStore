@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DiviceFullInfoComponent } from './divice-full-info.component';
 
-describe('DiviceFullInfoComponent', () => {
+describe('DeviceFullInfoComponent', () => {
   let component: DiviceFullInfoComponent;
   let fixture: ComponentFixture<DiviceFullInfoComponent>;
 
