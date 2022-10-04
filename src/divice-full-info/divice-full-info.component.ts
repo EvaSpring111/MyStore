@@ -37,7 +37,7 @@ export class DiviceFullInfoComponent implements OnInit {
     getDevice() {
       const id = this.route.snapshot.paramMap.get('id');
       this.stuffService.getDevice(id)
-        .subscribe(item => this.item.id = item.id);
+        .subscribe(item => item.id === item.id);
     }
 
 
