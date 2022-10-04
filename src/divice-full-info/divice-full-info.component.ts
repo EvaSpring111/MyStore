@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute} from '@angular/router';
+import { ActivatedRoute, ParamMap} from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Stuff } from 'src/model/Stuff.interface';
 import { StuffService } from 'src/services/stuff.service';
 import { CartService } from 'src/services/shopping-cart.service';
+import { Observable, switchMap } from 'rxjs';
 
 
 @Component({
@@ -15,13 +16,16 @@ import { CartService } from 'src/services/shopping-cart.service';
 })
 export class DiviceFullInfoComponent implements OnInit {
 
-  stuff: Stuff[] = [];
-  item: any;
+  // stuff: Stuff[] = [];
+  // item: any;
 
-  public productList : any ;
-  public filterCategory : any
+  // public productList : any ;
+  // public filterCategory : any
+  // id: string;
+  // totalLength: number = 4;
 
-  totalLength: number = 4;
+   item$!: Observable<Stuff>;
+
 
   constructor(
     private stuffService: StuffService,
@@ -30,16 +34,23 @@ export class DiviceFullInfoComponent implements OnInit {
     private location: Location
     ) {}
 
-    ngOnInit(): void {
-      this.getDevice();
+
+    ngOnInit() {
+      this.item$ = this.route.paramMap.pipe(
+        switchMap((params: ParamMap) =>
+          this.stuffService.getDevice(Number(params.get('age'))))
+      );
     }
 
-    getDevice() {
-      const id = this.route.snapshot.paramMap.get('id');
-      this.stuffService.getDevice(id)
-        .subscribe(item => item.id === item.id);
-    }
+    // ngOnInit(): void {
+    //   this.getDevice();
+    // }
 
+    // getDevice() {
+    //   const age = this.route.snapshot.paramMap.get(age);
+    //   this.stuffService.getDevice(age)
+    //     .subscribe(item => item.age === +age);
+    // }
 
     addToCart(item: Stuff): void{
       this.cartService.addToCart(item);

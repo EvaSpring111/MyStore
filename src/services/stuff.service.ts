@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map, tap, filter } from 'rxjs/operators';
 import * as rxjs from 'rxjs';
 import { Stuff } from 'src/model/Stuff.interface';
 
@@ -18,10 +18,11 @@ export class StuffService {
     return this.http.get<Stuff[]>(this.clientUrl)
   }
 
-  getDevice(id: any ): Observable<Stuff>{
-    const url = `${this.clientUrl}/${id}`;
-
-    return this.http.get<Stuff>(this.clientUrl)
+  getDevice(age: any ): Observable<Stuff>{
+    const url = `${this.clientUrl}/${age}`;
+    return this.http.get<Stuff>(this.clientUrl).pipe(
+      filter(item => item.age === age)
+    )
   }
 
   private handleError(error: any) {

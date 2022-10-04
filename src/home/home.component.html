@@ -90,8 +90,8 @@
               <a
                 class="text-decoration-none"
                 id="item_name"
-                [title]="item.name + ' details'"
-                routerLink="/item/{{item.id}}"
+                [title]="item.name + 'details'"
+                [routerLink]="['/item', item.age]"
                 aria-label="mobile name">
                   <h3
                     class="fw-bold">

@@ -18,6 +18,7 @@ export class CartService {
        return this.productList.asObservable();
     }
 
+
     setProduct( item: Stuff[]){
       this.cartItemList.push(...item);
       this.productList.next(item)

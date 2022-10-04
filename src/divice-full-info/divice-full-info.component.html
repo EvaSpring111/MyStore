@@ -1,5 +1,5 @@
 <div class="container-fluid bg-dark text-light py-5" id="list_Of_devices">
-  <button class="btn btn-outline-primary d-block mt-5" (click)="goBack()">Go back</button>
+  <button class="btn btn-outline-primary d-block my-5" (click)="goBack()">Go back</button>
   <!-- <nav class="navbar bg-dark fixed-left">
     <button
         class="navbar-toggler mt-5"
@@ -48,7 +48,7 @@
   </nav> -->
 
   <mat-card
-      *ngIf="item != 0"
+      *ngIf="item$ | async as item "
       class="center mt-5 d-flex flex-row justify-content-around align-item-center text-cente"
       id="mat_card"
       class="example-card mb-4" id="card_header">
@@ -57,7 +57,6 @@
             <a
             class="text-decoration-none"
             id="item_name"
-            [title]="item.name + ' details'"
             aria-label="mobile name">
             <h3 class="fw-bold">
             {{item.name}}

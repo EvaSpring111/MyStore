@@ -36,10 +36,12 @@ export class CartComponent implements OnInit {
   displayedColumns: string[] = ['Device', 'Price', 'Quantity', 'Total', 'Action'];
   dataSource = this.products;
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.cartService.getProducts()
     .subscribe(res => {
       this.products = res;
+      localStorage.setItem('dataSource', this.products.length);
+      console.log(localStorage.getItem('dataSource'));
       this.grandTotal = this.cartService.getTotalPrice();
       console.log('work');
     })

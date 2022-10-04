@@ -1,5 +1,4 @@
 export interface Stuff {
-    qty: number;
     age: number,
     id: string,
     type: string,
