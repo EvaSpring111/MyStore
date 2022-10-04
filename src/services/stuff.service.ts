@@ -6,22 +6,22 @@ import { catchError, map, tap } from 'rxjs/operators';
 import * as rxjs from 'rxjs';
 import { Stuff } from 'src/model/Stuff.interface';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
+
 export class StuffService {
+
   private clientUrl: string = 'https://mate-academy.github.io/react_phone-catalog/api/products.json';
 
   constructor(private http: HttpClient) {}
 
   getStuff(): Observable<Stuff[]> {
-    return this.http.get<Stuff[]>(this.clientUrl).pipe(
-      catchError(this.handleError)
-    );
+    return this.http.get<Stuff[]>(this.clientUrl)
   }
 
-  getItem(id:number): Observable<Stuff[]>{
-    return this.http.get<Stuff[]>(this.clientUrl[id+1]).pipe(
-      catchError(this.handleError)
-    );
+  getDevice(id: any ): Observable<Stuff>{
+    const url = `${this.clientUrl}/${id}`;
+
+    return this.http.get<Stuff>(this.clientUrl)
   }
 
   private handleError(error: any) {
@@ -41,16 +41,8 @@ export class StuffService {
      }
    }
 
-}
 
-// this.http.get('http://localhost/php/data.json')
-//     .pipe (
-//        catchError((error) => // handle the error here; )
-//      )
-//     .subscribe((res) => {
-//       this.data = res;
-//       console.log(this.data);
-//     })
+}
 
 
 

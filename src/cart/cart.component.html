@@ -1,8 +1,8 @@
 
-<div class="container-fluid mt-5">
-   <div class="cart-product">
+<div class="container-fluid mt-5 bg-dark text-light" *ngIf="products.length !=0">
+   <div class="cart-product ">
       <table class="table table-responsive table-dark table-hoveral col-sm-12 mt-5"
-      *ngIf="products.length !=0">
+      >
         <thead class="mt-5">
           <tr>
             <th>Product Name</th>
@@ -36,13 +36,42 @@
           </tbody>
         </table>
     </div>
+    <form
+      #form="ngForm"
+      [formGroup]="checkoutForm"
+      (ngSubmit)="onSubmit(form.value)"
+      class="mt-5 text-center text-ligth">
+      <div class="checkout">
+        <mat-form-field appearance="fill" >
+          <mat-label>Name</mat-label>
+          <input id="userName" type="text" formControlName="userName" matInput placeholder="Inna Green" required for="userName" >
+          <mat-error *ngIf="userName.invalid">{{getNameErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="checkout">
+        <mat-form-field appearance="fill">
+          <mat-label>Address</mat-label>
+          <input id="address" type="text" formControlName="address" matInput placeholder="Some Street, 99"  required for="address">
+          <mat-error *ngIf="address.invalid">{{getAddressErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="checkout">
+        <mat-form-field appearance="fill">
+          <mat-label>E-mail</mat-label>
+          <input  id="email" type="email" formControlName="email" matInput placeholder="yourt@mail.com"  required for="mail">
+          <mat-error *ngIf="email.invalid">{{getMailErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button color="primary" type="submit" class="mb-4">Purchase</button>
+    </form>
 </div>
-<ng-container *ngIf="products.length ==0" class="bg-dark text-ligth">
+
+<ng-container *ngIf="products.length == 0" class="bg-dark text-ligth">
   <div class="container-fluid h-75 mt-5">
     <div class="center">
       <img src="./assets/img/empty.jpg" alt="empty cart">
-      <h3>Add item to it now</h3>
-      <button routerLink="/deviceFullInfo" class="btn btn-outline-primary">Shop Now</button>
+      <h3>Add new items now!</h3>
+      <button routerLink="/home" class="btn btn-outline-primary">Shop Now</button>
     </div>
   </div>
 </ng-container>

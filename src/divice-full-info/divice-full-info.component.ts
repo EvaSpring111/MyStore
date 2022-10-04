@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { ActivatedRoute} from '@angular/router';
+import { Location } from '@angular/common';
 
 import { Stuff } from 'src/model/Stuff.interface';
-import { StuffService } from 'src/app/stuff.service';
-import { CartService } from 'src/app/shopping-cart.service';
+import { StuffService } from 'src/services/stuff.service';
+import { CartService } from 'src/services/shopping-cart.service';
 
 
 @Component({
@@ -27,50 +27,27 @@ export class DiviceFullInfoComponent implements OnInit {
     private stuffService: StuffService,
     private cartService: CartService,
     private route: ActivatedRoute,
+    private location: Location
     ) {}
 
-  // ngOnInit(): void {
-  //   this.stuffService
-  //   .getStuff()
-  //   .subscribe(res=>{
-  //     this.stuff = res;
-  //     this.totalLength = res.length;
-  //     this.productList = res;
-  //     this.filterCategory = res;
-  //     this.productList.forEach((a: any) => {
-  //       if(a.type === "phone"){
-  //         a.type = "phone"
-  //       } else if( a.type === "tablet"){
-  //         a.type = "tablet"
-  //       }
-  //       Object.assign(a, {
-  //         quantity: a.length,
-  //         total : a.discount ? a.price -(a.price  / 100 * a.discount) : a.price
-  //       });
-  //     });
-  //     console.log(this.productList)
-  //  });
-  // }
+    ngOnInit(): void {
+      this.getDevice();
+    }
 
-  ngOnInit(){
-      this.route.paramMap.subscribe(params => {
-        this.item = this.stuff[+params.get('itemAge')]
-      })
+    getDevice() {
+      const id = this.route.snapshot.paramMap.get('id');
+      this.stuffService.getDevice(id)
+        .subscribe(item => this.item.id = item.id);
     }
 
 
-  addToCart(item: Stuff): void{
-    this.cartService.addToCart(item);
-  }
+    addToCart(item: Stuff): void{
+      this.cartService.addToCart(item);
+    }
 
-  filterType(type: string){
-    this.filterCategory = this.productList
-    .filter((a:any)=>{
-      if(a.type == type || type ==''){
-        return a;
-      }
-    })
-  }
+    goBack(): void {
+      this.location.back();
+    }
 
 }
 

@@ -1,18 +1,31 @@
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
 .example-card {
   min-width: 300px;
 }
+
 mat-card {
   width: 50vw;
 }
+
 #navbarToggleExternalContent {
    margin-top: 180px;
 }
+
 .properties {
   color: maroon;
 }
+
 .properties::first-letter{
   font-weight: 900;
 }
+
 .filterBtn {
   color: black;
   font-family: 'Montserrat', sans-serif;

@@ -1,17 +1,18 @@
 <div class="container-fluid bg-dark text-light py-5 d-flex flex-row flex-wrap" id="list_Of_devices">
-    <ul class="col-sm-12 col-lg-3 mt-5">
-      <div class="d-block">
-        <label for="filter" class="col-3 col-sm-1 text-left">Filter By</label>
+    <ul class="col-sm-12 col-lg-3 mt-5 border-2">
+      <div class="d-flex align-items-center">
+        <label for="filter" class="text-left">
+          <mat-icon>search</mat-icon>
+        </label>
         <input id="filterSearch"
         [(ngModel)]="searchvalue"
-        class="form-control col-3 offset-sm-0 col-sm-5"
-        placeholder="Enter employee name to search.."/>
-        <mat-icon>search</mat-icon>
-        </div>
+        class="form-control col-1 col-sm-5 "
+        placeholder="Enter device name to search.."/>
+      </div>
       <li>
         <nav class="navbar bg-dark fixed-left">
           <button
-              class="navbar-toggler mt-5"
+              class="navbar-toggler mt-1"
               type="button"
               data-bs-toggle="offcanvas"
               data-bs-target="#filrtNavbar"
@@ -70,17 +71,16 @@
         class="btn-group btn-outline-primary mt-5 my-pagination text-light"
         (pageChange)="page = $event">
       </pagination-controls>
-
       <div class="d-flex flex-row justify-content-evenly flex-wrap gap-4">
         <div
           class="row col-sm-11 col-md-6 col-lg-5"
-          *ngFor="let item of filterCategory | searchFilter:searchvalue |  paginate: {
+          *ngFor="let item of filterCategory | searchFilter:searchvalue | paginate: {
             itemsPerPage: 6,
             currentPage: page,
             totalItems: totalLength
           }">
         <div
-          class="card mt-2 border-5 border-info mt-5 d-flex flex-row justify-content-between align-items-center h-100"
+          class="card my-2 border-5 border-info d-flex flex-row justify-content-between align-items-center h-100"
           style="width: 100%;"
           id="mat_card">
           <img src='/assets/{{item.imageUrl}}'
@@ -91,12 +91,11 @@
                 class="text-decoration-none"
                 id="item_name"
                 [title]="item.name + ' details'"
-                routerLink="/stuff/{{item.age}}"
+                routerLink="/item/{{item.id}}"
                 aria-label="mobile name">
-
                   <h3
-                  class="fw-bold">
-                  {{item.name}}
+                    class="fw-bold">
+                    {{item.name}}
                   </h3>
               </a>
             <div class="d-flex flex-column">
@@ -128,11 +127,11 @@
           </button>
       </div>
        </div>
-       </div>
+      </div>
 
       </div>
       <pagination-controls
-        class="btn-group btn-outline-primary my-5 text-light my-pagination"
+        class="btn-group btn-outline-primary mt-5 text-light my-pagination"
         (pageChange)="page = $event">
      </pagination-controls>
     </div>

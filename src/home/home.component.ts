@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { SearchFilter } from 'src/divice-full-info/searchFilter.pipe';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { SearchFilter } from 'src/filters/searchFilter.pipe';
 
 import { Stuff } from 'src/model/Stuff.interface';
-import { StuffService } from 'src/app/stuff.service';
-import { CartService } from 'src/app/shopping-cart.service';
+import { StuffService } from 'src/services/stuff.service';
+import { CartService } from 'src/services/shopping-cart.service';
 
 @Component({
   selector: 'app-home',
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
     public searchFilter:SearchFilter) {
   }
 
-  searchvalue:string = "";
+  searchvalue: string = "";
 
   length: number | undefined;
   totalLength: any;
@@ -49,6 +49,8 @@ export class HomeComponent implements OnInit {
           a.type = "phone"
         } else if( a.type === "tablet"){
           a.type = "tablet"
+        } else if (a.capacity > 1000){
+          a.capacity = 1000
         }
         Object.assign(a, {
           quantity: 1,
@@ -70,6 +72,7 @@ export class HomeComponent implements OnInit {
       }
     })
   }
+
 
 }
 

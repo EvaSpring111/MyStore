@@ -1,46 +1,41 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from 'src/home/home.component';
+import { DiviceFullInfoComponent } from 'src/divice-full-info/divice-full-info.component';
+import { CartComponent } from 'src/cart/cart.component';
 
 import { MaterialExampleModule } from '../material.module';
-import { StuffService } from './stuff.service';
-import { CartService  } from './shopping-cart.service';
+import { MatIconModule } from '@angular/material/icon';
+import { StuffService } from 'src/services/stuff.service';
+import { CartService  } from 'src/services/shopping-cart.service';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { FilterPipe } from './filter.pipe';
-import { SearchFilter } from 'src/divice-full-info/searchFilter.pipe';
+import { FilterPipe } from 'src/filters/filter.pipe';
+import { SearchFilter } from 'src/filters/searchFilter.pipe';
+import { FilterPipeScreen } from 'src/filters/filterScreem.pipe'
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { HomeComponent } from 'src/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CartComponent } from 'src/cart/cart.component';
-import { DiviceFullInfoComponent } from 'src/divice-full-info/divice-full-info.component';
-import { ShippingComponent } from 'src/shipping/shipping.component';
+import { AppRoutingModule } from './app-routing.module';
 
-const routes: Routes = [
-  {  path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-
-  { path: 'stuff/:itemID', component: DiviceFullInfoComponent },
-  { path: 'cart', component: CartComponent  },
-  { path: 'deviceFullInfo', component: DiviceFullInfoComponent  },
-  // { path: 'shipping', component: ShippingComponent  },
-];
 
 @NgModule({
    imports: [
     BrowserModule,
     MaterialExampleModule,
+    MatIconModule,
     CommonModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes),
     NgxPaginationModule,
     Ng2SearchPipeModule,
+    AppRoutingModule,
+    BrowserAnimationsModule
 
   ],
   declarations: [
@@ -50,14 +45,11 @@ const routes: Routes = [
     CartComponent,
     FilterPipe,
     SearchFilter,
-    ShippingComponent,
   ],
   providers: [
     StuffService,
     CartService,
-    ReactiveFormsModule
   ],
-  exports: [RouterModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
