@@ -49,9 +49,6 @@ import {DialogModule} from '@angular/cdk/dialog';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 
-
-
-
 @NgModule({
   exports: [
     A11yModule,
@@ -104,8 +101,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
   ],
   declarations: [
     NotFoundComponent,
-
-
 
   ]
 })

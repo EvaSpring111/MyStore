@@ -4,41 +4,60 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { MaterialExampleModule } from '../material.module';
 import { StuffService } from './stuff.service';
 import { CartService  } from './shopping-cart.service';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FilterPipe } from './filter.pipe';
+import { SearchFilter } from 'src/divice-full-info/searchFilter.pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { HomeComponent } from 'src/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from 'src/cart/cart.component';
 import { DiviceFullInfoComponent } from 'src/divice-full-info/divice-full-info.component';
+import { ShippingComponent } from 'src/shipping/shipping.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent,  pathMatch: 'full'  },
-  { path: 'stuff/:itemName', component: DiviceFullInfoComponent },
+  {  path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+
+  { path: 'stuff/:itemID', component: DiviceFullInfoComponent },
   { path: 'cart', component: CartComponent  },
   { path: 'deviceFullInfo', component: DiviceFullInfoComponent  },
+  // { path: 'shipping', component: ShippingComponent  },
 ];
 
 @NgModule({
+   imports: [
+    BrowserModule,
+    MaterialExampleModule,
+    CommonModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes),
+    NgxPaginationModule,
+    Ng2SearchPipeModule,
+
+  ],
   declarations: [
     AppComponent,
     HomeComponent,
     DiviceFullInfoComponent,
-    CartComponent
+    CartComponent,
+    FilterPipe,
+    SearchFilter,
+    ShippingComponent,
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MaterialExampleModule,
-    CommonModule,
-    HttpClientModule,
-    RouterModule.forRoot(routes),
-    NgxPaginationModule
+  providers: [
+    StuffService,
+    CartService,
+    ReactiveFormsModule
   ],
-  providers: [ StuffService, CartService ],
+  exports: [RouterModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

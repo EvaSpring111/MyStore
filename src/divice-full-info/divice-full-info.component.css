@@ -1,3 +1,37 @@
 .example-card {
-  max-width: 400px;
+  min-width: 300px;
+}
+mat-card {
+  width: 50vw;
+}
+#navbarToggleExternalContent {
+   margin-top: 180px;
+}
+.properties {
+  color: maroon;
+}
+.properties::first-letter{
+  font-weight: 900;
+}
+.filterBtn {
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.filterBtn:hover,
+.filterBtn:focus {
+  color: rgb(240, 232, 234);
+  cursor: pointer;
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  transform: translateY(-0.25rem);
+}
+
+.buttons_home:hover,
+.buttons_home:focus {
+  transform: translateY(-0.25rem);
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 }

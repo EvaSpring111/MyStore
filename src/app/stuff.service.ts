@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import * as rxjs from 'rxjs';
 import { Stuff } from 'src/model/Stuff.interface';
-
-
 
 @Injectable()
 export class StuffService {
@@ -15,11 +13,33 @@ export class StuffService {
   constructor(private http: HttpClient) {}
 
   getStuff(): Observable<Stuff[]> {
-    return this.http.get<Stuff[]>(this.clientUrl)
+    return this.http.get<Stuff[]>(this.clientUrl).pipe(
+      catchError(this.handleError)
+    );
   }
+
   getItem(id:number): Observable<Stuff[]>{
-    return this.http.get<Stuff[]>(this.clientUrl[id+1]);
+    return this.http.get<Stuff[]>(this.clientUrl[id+1]).pipe(
+      catchError(this.handleError)
+    );
   }
+
+  private handleError(error: any) {
+    console.log(error);
+    return throwError(error);
+  }
+
+  searchStuff(data: string): Observable<Stuff[]> {
+    if(data.trim()!==""){
+     return this.http.get<Stuff[]>(`${this.clientUrl}/?name=${data.trim()}`).pipe(
+       catchError(this.handleError)
+     );
+    } else {
+     return this.http.get<Stuff[]>(this.clientUrl).pipe(
+       catchError(this.handleError)
+     );
+     }
+   }
 
 }
 

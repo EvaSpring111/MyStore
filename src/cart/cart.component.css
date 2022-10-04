@@ -1,3 +1,56 @@
-p{
-  margin-top: 200px;
+#table_container{
+  margin-top: 300px;
 }
+.card-table {
+  width: 100vw;
+}
+
+thead{
+  margin-top: 250px;
+}
+.card {
+  height: 60vh;
+  margin: 25px;
+  padding: 25px;
+}
+
+.center img {
+  text-decoration: none;
+  color: black;
+  border: none;
+  outline: none;
+  height: 162px;
+  width: 250px;
+  margin: 20px 0px;
+}
+
+table tr {
+  color: rgb(245, 238, 238);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.card-table {
+
+  display: flex;
+  flex-direction: column;
+  min-width: 100vw;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: .25rem;
+}
+
+

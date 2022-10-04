@@ -1,30 +1,80 @@
-<div class="container-fluid bg-dark text-light py-5" id="list_Of_devices">
+<div class="container-fluid bg-dark text-light py-5 d-flex flex-row flex-wrap" id="list_Of_devices">
+    <ul class="col-sm-12 col-lg-3 mt-5">
+      <div class="d-block">
+        <label for="filter" class="col-3 col-sm-1 text-left">Filter By</label>
+        <input id="filterSearch"
+        [(ngModel)]="searchvalue"
+        class="form-control col-3 offset-sm-0 col-sm-5"
+        placeholder="Enter employee name to search.."/>
+        <mat-icon>search</mat-icon>
+        </div>
+      <li>
+        <nav class="navbar bg-dark fixed-left">
+          <button
+              class="navbar-toggler mt-5"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#filrtNavbar"
+              aria-controls="filrtNavbar"
+              mat-mini-fab color="warn">
+                <mat-icon>filter_list</mat-icon>
+          </button>
+          <div
+              class="offcanvas offcanvas-end"
+              tabindex="-1"
+              id="filrtNavbar"
+              aria-labelledby="filrtNavbar">
+              <div class="offcanvas-header">
+                <h3 class="offcanvas-title text-dark" id="filter">Filters</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1">
+                  <li class="nav-item py-1">
+                    <button mat-raised-button color="primary" class="filterBtn ">
+                      <a (click)="filterType('')" >
+                          All products
+                      </a>
+                    </button>
+                  </li>
+                  <li class="nav-item py-1">
+                    <button mat-raised-button color="primary" class="filterBtn">
+                      <a (click)="filterType('phone')" >
+                          Mobiles
+                      </a>
+                    </button>
+                  </li>
+                  <li class="nav-item py-1">
+                    <button mat-raised-button color="primary" class="filterBtn">
+                      <a (click)="filterType('tablet')">
+                          Tablet
+                      </a>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </nav>
+      </li>
+      <li>wwwwwwwwwwwwwww</li>
+      <li>wwwwwwwwwwwwwww</li>
+      <li>wwwwwwwwwwwwwww</li>
+      <li>wwwwwwwwwwwwwww</li>
+      <li>wwwwwwwwwwwwwww</li>
+      <li>wwwwwwwwwwwwwww</li>
+      <li>wwwwwwwwwwwwwww</li>
+      <li>wwwwwwwwwwwwwwws</li>
+    </ul>
+    <div class="col-sm-12 col-lg-9 text-dark text-center">
+      <pagination-controls
+        class="btn-group btn-outline-primary mt-5 my-pagination text-light"
+        (pageChange)="page = $event">
+      </pagination-controls>
 
-    <div class="row">
-
-        <ul class="col mt-5">
-          <li>wwwwwwwwwwwwwww</li>
-          <li>wwwwwwwwwwwwwww</li>
-          <li>wwwwwwwwwwwwwww</li>
-          <li>wwwwwwwwwwwwwww</li>
-          <li>wwwwwwwwwwwwwww</li>
-          <li>wwwwwwwwwwwwwww</li>
-          <li>wwwwwwwwwwwwwww</li>
-          <li>wwwwwwwwwwwwwww</li>
-          <li>wwwwwwwwwwwwwww</li>
-          <li>wwwwwwwwwwwwwwws</li>
-        </ul>
-
-    <div class="container col-lg-8 d-grid gap-4text-dark text-center">
-    <pagination-controls
-      class="btn-group btn-outline-primary mt-5 my-pagination text-light"
-      (pageChange)="page = $event">
-    </pagination-controls>
-      <div class="d-flex flex-row justify-content-around flex-wrap gap-4">
+      <div class="d-flex flex-row justify-content-evenly flex-wrap gap-4">
         <div
-          class="row col-sm-11 col-md-6 col-lg-6"
-          *ngFor="let item of stuff |
-          paginate: {
+          class="row col-sm-11 col-md-6 col-lg-5"
+          *ngFor="let item of filterCategory | searchFilter:searchvalue |  paginate: {
             itemsPerPage: 6,
             currentPage: page,
             totalItems: totalLength
@@ -41,8 +91,9 @@
                 class="text-decoration-none"
                 id="item_name"
                 [title]="item.name + ' details'"
-                [routerLink]="['stuff', item.name]"
+                routerLink="/stuff/{{item.age}}"
                 aria-label="mobile name">
+
                   <h3
                   class="fw-bold">
                   {{item.name}}
@@ -66,48 +117,25 @@
                   New Price: {{ item.price - (item.price  / 100 * item.discount) | currency}}
               </span>
           </div>
-        </div>
-         <div
-        class="d-flex flex-column justify-content-center gap-4 mb-3">
-          <button mat-raised-button color="accent" class="buttons_home"
-          aria-label="I like this device">
-          I like it
-        </button>
-        <!--<button
-          mat-raised-button color="primary" class="buttons_home"
-          aria-label="buy this device"
-          (click)="addToCart(item)">
-          Buy it
-        </button>
-      </div> -->
+          </div>
+        <div class="d-flex flex-column justify-content-center gap-4 mb-3">
+          <button
+            mat-flat-button color="primary"
+            class="buttons_home"
+            aria-label="buy this device"
+            (click)="addToCart(item)">
+              <mat-icon>add_shopping_cart</mat-icon>
+          </button>
       </div>
-  </div>
-</div>
-<pagination-controls
-  class="btn-group btn-outline-primary my-5 text-light my-pagination"
-  (pageChange)="page = $event">
-   <!-- <div class="form-inline">
-    <select [value]="productsPerPage" class="form-control"></select>
-    <option value="4">4</option>
-    <option value="6">6</option>
-    <option value="10"10></option>
-  </div> -->
-</pagination-controls>
-    </div>
+       </div>
+       </div>
 
-    <ul class="col mt-5">
-      <li>wwwwwwwwwwwwwww</li>
-      <li>wwwwwwwwwwwwwww</li>
-      <li>wwwwwwwwwwwwwww</li>
-      <li>wwwwwwwwwwwwwww</li>
-      <li>wwwwwwwwwwwwwww</li>
-      <li>wwwwwwwwwwwwwww</li>
-      <li>wwwwwwwwwwwwwww</li>
-      <li>wwwwwwwwwwwwwww</li>
-      <li>wwwwwwwwwwwwwww</li>
-      <li>wwwwwwwwwwwwwwws</li>
-    </ul>
-</div>
+      </div>
+      <pagination-controls
+        class="btn-group btn-outline-primary my-5 text-light my-pagination"
+        (pageChange)="page = $event">
+     </pagination-controls>
+    </div>
 
 </div>
 

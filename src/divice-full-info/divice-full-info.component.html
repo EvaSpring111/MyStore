@@ -1,11 +1,57 @@
 <div class="container-fluid bg-dark text-light py-5" id="list_Of_devices">
+  <nav class="navbar bg-dark fixed-left">
+    <button
+        class="navbar-toggler mt-5"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#filrtNavbar"
+        aria-controls="filrtNavbar"
+        mat-mini-fab color="warn">
+          <mat-icon>filter_list</mat-icon>
+    </button>
+    <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="filrtNavbar"
+        aria-labelledby="filrtNavbar">
+        <div class="offcanvas-header">
+          <h3 class="offcanvas-title text-dark" id="filter">Filters</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1">
+            <li class="nav-item py-1">
+              <button mat-raised-button color="primary" class="filterBtn ">
+                <a (click)="filterType('')" >
+                    All products
+                </a>
+              </button>
+            </li>
+            <li class="nav-item py-1">
+              <button mat-raised-button color="primary" class="filterBtn">
+                <a (click)="filterType('phone')" >
+                    Mobiles
+                </a>
+              </button>
+            </li>
+            <li class="nav-item py-1">
+              <button mat-raised-button color="primary" class="filterBtn">
+                <a (click)="filterType('tablet')">
+                    Tablet
+                </a>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+  </nav>
+
   <mat-card
-      *ngFor="let item of stuff"
-      class="container mt-5 d-flex flex-row justify-content-around"
+      *ngIf="item"
+      class="center mt-5 d-flex flex-row justify-content-around align-item-center text-cente"
       id="mat_card"
       class="example-card mb-4" id="card_header">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-header class="mt-1">
           <mat-card-title>
             <a
             class="text-decoration-none"
@@ -17,9 +63,7 @@
             </h3>
           </a>
           </mat-card-title>
-          <mat-card-subtitle>
-            {{item.type}}
-          </mat-card-subtitle>
+        </mat-card-header>
           <div class="container d-flex flex-column">
             <mat-card-subtitle
             aria-label="price of device"
@@ -39,11 +83,16 @@
             New Price: {{ item.price - (item.price  / 100 * item.discount) | currency}}
           </mat-card-subtitle>
           </div>
-        </mat-card-header>
+
           <img mat-card-image
             src='/assets/{{item.imageUrl}}'
             class="img-responsive"
             alt="mobile picture">
+            <div class="container d-flex flex-column my-3 properties">
+              <mat-card-subtitle><strong>Capacity:</strong> {{item.capacity}}</mat-card-subtitle>
+              <mat-card-subtitle><strong>Screen:</strong> {{item.screen}}</mat-card-subtitle>
+              <mat-card-subtitle><strong>RAM (Access Memory):</strong> {{item.ram}}</mat-card-subtitle>
+            </div>
         <mat-card-content>
           <p class="text-center">
             {{ item.snippet}}
@@ -65,6 +114,7 @@
             Add to cart
            </button>
         </mat-card-actions>
-      </mat-card>
+  </mat-card>
 </div>
+
 

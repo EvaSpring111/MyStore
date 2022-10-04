@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
+import { CartService  } from './shopping-cart.service';
 
 import { FooterLinks } from 'src/model/FooterLinks.interface';
 import { HeaderNav } from 'src/model/HeaderNav.interface';
@@ -11,15 +12,33 @@ import { HeaderNav } from 'src/model/HeaderNav.interface';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'MyStore';
+
+  public totalItem : number = 0;
+  public searchTerm !: string;
+  searchvalue: any;
+  constructor(private cartService : CartService) { }
+
+  ngOnInit(): void {
+    this.cartService.getProducts()
+    .subscribe(res=>{
+      this.totalItem = res.length;
+    })
+  }
+
+  search(event:any){
+    this.searchTerm = (event.target as HTMLInputElement).value;
+    // console.log(this.searchTerm);
+    this.cartService.search.next(this.searchTerm);
+  }
 
   headerNav: HeaderNav[] = [
     {
-      routerLink: "",
+      routerLink: "home",
       ariaLabel: "Home",
       title: "Home",
-      href: null,
+      href: "#",
     },
     {
       routerLink: "",
