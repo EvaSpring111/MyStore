@@ -31,20 +31,21 @@ export class CartComponent implements OnInit {
     private cartService : CartService,
     private formBuilder: FormBuilder,
     private httpService: HttpService
-    ) {}
+    ) {
+      this.cartService.getProducts()
+      .subscribe(res => {
+        this.products = res;
+        localStorage.setItem('dataSource', this.products.length);
+        console.log(localStorage.getItem('dataSource'));
+        this.grandTotal = this.cartService.getTotalPrice();
+        console.log('work');
+      })
+    }
 
   displayedColumns: string[] = ['Device', 'Price', 'Quantity', 'Total', 'Action'];
   dataSource = this.products;
 
-  ngOnInit() {
-    this.cartService.getProducts()
-    .subscribe(res => {
-      this.products = res;
-      localStorage.setItem('dataSource', this.products.length);
-      console.log(localStorage.getItem('dataSource'));
-      this.grandTotal = this.cartService.getTotalPrice();
-      console.log('work');
-    })
+  ngOnInit(): void {
 
   }
 
@@ -97,5 +98,9 @@ export class CartComponent implements OnInit {
           error: error => console.log(error)
     });
   }
+
+  // ngOnDestroy(){
+  //  .unsubscribe();
+  // }
 }
 

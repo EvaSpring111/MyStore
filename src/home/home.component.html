@@ -91,7 +91,7 @@
                 class="text-decoration-none"
                 id="item_name"
                 [title]="item.name + 'details'"
-                [routerLink]="['/item', item.age]"
+                routerLink="/products/{{item.id}}"
                 aria-label="mobile name">
                   <h3
                     class="fw-bold">

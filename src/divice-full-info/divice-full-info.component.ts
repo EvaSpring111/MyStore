@@ -5,7 +5,7 @@ import { Location } from '@angular/common';
 import { Stuff } from 'src/model/Stuff.interface';
 import { StuffService } from 'src/services/stuff.service';
 import { CartService } from 'src/services/shopping-cart.service';
-import { Observable, switchMap } from 'rxjs';
+import { map, Observable, of, switchMap } from 'rxjs';
 
 
 @Component({
@@ -15,17 +15,13 @@ import { Observable, switchMap } from 'rxjs';
 
 })
 export class DiviceFullInfoComponent implements OnInit {
-
   // stuff: Stuff[] = [];
-  // item: any;
-
   // public productList : any ;
   // public filterCategory : any
   // id: string;
   // totalLength: number = 4;
-
-   item$!: Observable<Stuff>;
-
+  // item$: Observable<Stuff>;
+   item: any;
 
   constructor(
     private stuffService: StuffService,
@@ -34,23 +30,40 @@ export class DiviceFullInfoComponent implements OnInit {
     private location: Location
     ) {}
 
-
-    ngOnInit() {
-      this.item$ = this.route.paramMap.pipe(
-        switchMap((params: ParamMap) =>
-          this.stuffService.getDevice(Number(params.get('age'))))
-      );
+    ngOnInit(): void {
+      this.getDevice();
     }
 
-    // ngOnInit(): void {
-    //   this.getDevice();
-    // }
+    getDevice(): void {
+      let id = this.route.snapshot.paramMap.get("id");
+      console.log('1:', id)
+      this.stuffService.getDevice(id)
+      .subscribe(data => {
+        this.item = data;
+      });
+    //   // const id = this.route.snapshot.paramMap.get('id');
+    //   // this.stuffService.getDevice(id)
+    //   //   .subscribe(item => this.item = item);
+    }
 
-    // getDevice() {
-    //   const age = this.route.snapshot.paramMap.get(age);
-    //   this.stuffService.getDevice(age)
-    //     .subscribe(item => item.age === +age);
-    // }
+
+  //  ngOnInit() {
+  //     this.item$ = this.route.paramMap.pipe(
+  //       switchMap((params: ParamMap) =>
+  //         this.stuffService.getDevice(String(params.get('id')))
+  //         )
+  //       );
+  //        console.log('item$', this.item$);
+  //     }
+
+  // ngOnInit() {
+  //   let id = this.route.snapshot.params['id']
+  //     this.stuffService.getDevice(id)
+  //      .subscribe((data: Stuff) => this.item = data);
+
+  //   console.log(this.route.snapshot.params['id'], );
+  // }
+
 
     addToCart(item: Stuff): void{
       this.cartService.addToCart(item);

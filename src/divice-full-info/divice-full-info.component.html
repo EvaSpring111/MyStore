@@ -48,7 +48,7 @@
   </nav> -->
 
   <mat-card
-      *ngIf="item$ | async as item "
+      *ngIf="item"
       class="center mt-5 d-flex flex-row justify-content-around align-item-center text-cente"
       id="mat_card"
       class="example-card mb-4" id="card_header">
@@ -59,7 +59,7 @@
             id="item_name"
             aria-label="mobile name">
             <h3 class="fw-bold">
-            {{item.name}}
+            {{item.additionalFeatures}}
             </h3>
           </a>
           </mat-card-title>
@@ -89,13 +89,13 @@
             class="img-responsive"
             alt="mobile picture">
             <div class="container d-flex flex-column my-3 properties">
-              <mat-card-subtitle><strong>Capacity:</strong> {{item.capacity}}</mat-card-subtitle>
-              <mat-card-subtitle><strong>Screen:</strong> {{item.screen}}</mat-card-subtitle>
-              <mat-card-subtitle><strong>RAM (Access Memory):</strong> {{item.ram}}</mat-card-subtitle>
+              <mat-card-subtitle><strong>Capacity:</strong> {{item.camera.primary}}</mat-card-subtitle>
+              <mat-card-subtitle><strong>Screen:</strong> {{item.camera.features}}</mat-card-subtitle>
+              <mat-card-subtitle><strong>RAM (Access Memory):</strong> {{item.connectivity.bluetooth}}</mat-card-subtitle>
             </div>
         <mat-card-content>
           <p class="text-center">
-            {{ item.snippet}}
+            {{ item.description}}
           </p>
         </mat-card-content>
         <mat-card-actions>
@@ -109,7 +109,8 @@
             mat-raised-button color="primary"
             class="buttons_home"
             aria-label="buy this device"
-            (click)="addToCart(item)">
+
+            >
             <mat-icon>add_shopping_cart</mat-icon>
             Add to cart
            </button>

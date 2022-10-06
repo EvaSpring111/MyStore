@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Observable, throwError } from 'rxjs';
-import { catchError, map, tap, filter } from 'rxjs/operators';
+import { Observable, of, Subject, throwError } from 'rxjs';
+import { catchError, map, } from 'rxjs/operators';
 import * as rxjs from 'rxjs';
 import { Stuff } from 'src/model/Stuff.interface';
 
@@ -11,19 +11,26 @@ import { Stuff } from 'src/model/Stuff.interface';
 export class StuffService {
 
   private clientUrl: string = 'https://mate-academy.github.io/react_phone-catalog/api/products.json';
+  private Url: string = 'https://mate-academy.github.io/react_phone-catalog/api/products';
 
   constructor(private http: HttpClient) {}
 
   getStuff(): Observable<Stuff[]> {
-    return this.http.get<Stuff[]>(this.clientUrl)
+   return this.http.get<Stuff[]>(this.clientUrl)
   }
 
-  getDevice(age: any ): Observable<Stuff>{
-    const url = `${this.clientUrl}/${age}`;
-    return this.http.get<Stuff>(this.clientUrl).pipe(
-      filter(item => item.age === age)
-    )
+  getDevice(id: string | null): Observable<any> {
+    console.log('2', id)
+    const url = `${this.Url}/${id}.json`;
+    return this.http.get<any>(url);
+
+    // return this.http.get<Stuff>(this.clientUrl).pipe(
+    //   map((items: Stuff[]) =>
+    //     items.find((item) => item.id === id)
+    //   )
+    // );
   }
+
 
   private handleError(error: any) {
     console.log(error);
@@ -42,8 +49,9 @@ export class StuffService {
      }
    }
 
-
 }
+
+
 
 
 

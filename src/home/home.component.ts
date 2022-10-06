@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+
 import { SearchFilter } from 'src/filters/searchFilter.pipe';
 
 import { Stuff } from 'src/model/Stuff.interface';
@@ -26,8 +27,7 @@ export class HomeComponent implements OnInit {
     private stuffService: StuffService,
     private route: ActivatedRoute,
     private cartService: CartService,
-    public searchFilter:SearchFilter) {
-  }
+    public searchFilter:SearchFilter) {}
 
   searchvalue: string = "";
 
@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
   page: number = 1;
   showpost: any = [];
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.stuffService
     .getStuff()
     .subscribe((data: Stuff[]) => {
@@ -49,9 +49,8 @@ export class HomeComponent implements OnInit {
           a.type = "phone"
         } else if( a.type === "tablet"){
           a.type = "tablet"
-        } else if (a.capacity > 1000){
-          a.capacity = 1000
         }
+
         Object.assign(a, {
           quantity: 1,
           total : a.discount ? a.price -(a.price  / 100 * a.discount) : a.price
