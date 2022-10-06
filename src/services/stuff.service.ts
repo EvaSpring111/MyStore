@@ -19,16 +19,10 @@ export class StuffService {
    return this.http.get<Stuff[]>(this.clientUrl)
   }
 
-  getDevice(id: string | null): Observable<any> {
+  getDevice(id: string | null): Observable<Stuff> {
     console.log('2', id)
     const url = `${this.Url}/${id}.json`;
-    return this.http.get<any>(url);
-
-    // return this.http.get<Stuff>(this.clientUrl).pipe(
-    //   map((items: Stuff[]) =>
-    //     items.find((item) => item.id === id)
-    //   )
-    // );
+    return this.http.get<Stuff>(url);
   }
 
 
@@ -50,6 +44,14 @@ export class StuffService {
    }
 
 }
+
+
+
+  // return this.http.get<Stuff>(this.clientUrl).pipe(
+    //   map((items: Stuff[]) =>
+    //     items.find((item) => item.id === id)
+    //   )
+    // );
 
 
 

@@ -1,52 +1,5 @@
 <div class="container-fluid bg-dark text-light py-5" id="list_Of_devices">
   <button class="btn btn-outline-primary d-block my-5" (click)="goBack()">Go back</button>
-  <!-- <nav class="navbar bg-dark fixed-left">
-    <button
-        class="navbar-toggler mt-5"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#filrtNavbar"
-        aria-controls="filrtNavbar"
-        mat-mini-fab color="warn">
-          <mat-icon>filter_list</mat-icon>
-    </button>
-    <div
-        class="offcanvas offcanvas-end"
-        tabindex="-1"
-        id="filrtNavbar"
-        aria-labelledby="filrtNavbar">
-        <div class="offcanvas-header">
-          <h3 class="offcanvas-title text-dark" id="filter">Filters</h3>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1">
-            <li class="nav-item py-1">
-              <button mat-raised-button color="primary" class="filterBtn ">
-                <a (click)="filterType('')" >
-                    All products
-                </a>
-              </button>
-            </li>
-            <li class="nav-item py-1">
-              <button mat-raised-button color="primary" class="filterBtn">
-                <a (click)="filterType('phone')" >
-                    Mobiles
-                </a>
-              </button>
-            </li>
-            <li class="nav-item py-1">
-              <button mat-raised-button color="primary" class="filterBtn">
-                <a (click)="filterType('tablet')">
-                    Tablet
-                </a>
-              </button>
-            </li>
-          </ul>
-        </div>
-      </div>
-  </nav> -->
-
   <mat-card
       *ngIf="item"
       class="center mt-5 d-flex flex-row justify-content-around align-item-center text-cente"
@@ -59,58 +12,61 @@
             id="item_name"
             aria-label="mobile name">
             <h3 class="fw-bold">
-            {{item.additionalFeatures}}
+            {{item.name}}
             </h3>
           </a>
           </mat-card-title>
         </mat-card-header>
-          <div class="container d-flex flex-column">
-            <mat-card-subtitle
-            aria-label="price of device"
-            [style.text-decoration.]="item.discount ?
-            'line-through' :  'none'">
-             Price:  {{ item.price | currency }}
-          </mat-card-subtitle>
-          <mat-card-subtitle
-            *ngIf="item.discount > 0"
-            aria-label="discount">
-            Sale: {{ item.discount }} %
-          </mat-card-subtitle>
-
-          <mat-card-subtitle id="price_with_discont"
-          *ngIf="item.discount"
-            aria-label="total price">
-            New Price: {{ item.price - (item.price  / 100 * item.discount) | currency}}
-          </mat-card-subtitle>
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
           </div>
-
-          <img mat-card-image
-            src='/assets/{{item.imageUrl}}'
-            class="img-responsive"
-            alt="mobile picture">
+          <div class="carousel-inner" >
+            <div class="carousel-item active" >
+              <img *ngIf="item.images" src="/assets/{{item.images[0]}}" class="d-block w-100 img-responsive" alt="mobile picture">
+            </div>
+            <div class="carousel-item">
+              <img *ngIf="item.images" src="/assets/{{item.images[1]}}" class="d-block w-100 img-responsive" alt="mobile picture">
+            </div>
+            <div class="carousel-item">
+              <img *ngIf="item.images" src="/assets/{{item.images[3]}}" class="d-block w-100 mg-responsive" alt="mobile picture">
+            </div>
+            <div class="carousel-item">
+              <img *ngIf="item.images" src='/assets/{{item.images[4]}}' class="d-block w-100 mg-responsive" alt="mobile picture">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
             <div class="container d-flex flex-column my-3 properties">
-              <mat-card-subtitle><strong>Capacity:</strong> {{item.camera.primary}}</mat-card-subtitle>
-              <mat-card-subtitle><strong>Screen:</strong> {{item.camera.features}}</mat-card-subtitle>
-              <mat-card-subtitle><strong>RAM (Access Memory):</strong> {{item.connectivity.bluetooth}}</mat-card-subtitle>
+              <mat-card-subtitle><strong>:</strong> {{item.camera.primary}}</mat-card-subtitle>
+              <mat-card-subtitle><strong>:</strong> {{item.camera.features}}</mat-card-subtitle>
+              <mat-card-subtitle><strong> :</strong> {{item.connectivity.bluetooth}}</mat-card-subtitle>
             </div>
         <mat-card-content>
           <p class="text-center">
             {{ item.description}}
           </p>
+          <p class="text-center">
+            {{ item.availability}}
+          </p>
         </mat-card-content>
         <mat-card-actions>
-          <button
-            mat-raised-button color="accent" class="buttons_home"
-            aria-label="I like this device">
-            I like it
-            </button>
             <button
             type="button"
             mat-raised-button color="primary"
             class="buttons_home"
             aria-label="buy this device"
-
-            >
+            (click)="addToCart(item)"   >
             <mat-icon>add_shopping_cart</mat-icon>
             Add to cart
            </button>

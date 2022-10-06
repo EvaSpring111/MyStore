@@ -36,15 +36,20 @@ export class DiviceFullInfoComponent implements OnInit {
 
     getDevice(): void {
       let id = this.route.snapshot.paramMap.get("id");
-      console.log('1:', id)
+
       this.stuffService.getDevice(id)
       .subscribe(data => {
         this.item = data;
       });
-    //   // const id = this.route.snapshot.paramMap.get('id');
-    //   // this.stuffService.getDevice(id)
-    //   //   .subscribe(item => this.item = item);
+  }
+    addToCart(item: Stuff): void{
+      this.cartService.addToCart(item);
     }
+
+    goBack(): void {
+      this.location.back();
+    }
+}
 
 
   //  ngOnInit() {
@@ -55,25 +60,6 @@ export class DiviceFullInfoComponent implements OnInit {
   //       );
   //        console.log('item$', this.item$);
   //     }
-
-  // ngOnInit() {
-  //   let id = this.route.snapshot.params['id']
-  //     this.stuffService.getDevice(id)
-  //      .subscribe((data: Stuff) => this.item = data);
-
-  //   console.log(this.route.snapshot.params['id'], );
-  // }
-
-
-    addToCart(item: Stuff): void{
-      this.cartService.addToCart(item);
-    }
-
-    goBack(): void {
-      this.location.back();
-    }
-
-}
 
 
 

@@ -26,21 +26,9 @@ mat-card {
   font-weight: 900;
 }
 
-.filterBtn {
-  color: black;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 200;
-  font-style: normal;
-  letter-spacing: 1px;
-  text-decoration: none;
-}
-
-.filterBtn:hover,
-.filterBtn:focus {
-  color: rgb(240, 232, 234);
-  cursor: pointer;
-  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
-  transform: translateY(-0.25rem);
+img{
+  max-width: 500px;
+  min-width: 250px;
 }
 
 .buttons_home:hover,
