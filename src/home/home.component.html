@@ -59,19 +59,22 @@
             </div>
         </nav>
       </li>
-      <li class="border-2 border-info">Hot Sales</li>
-      <li>MOTOROLA XOOM™</li>
-      <li>Samsung Gem™</li>
-      <li>Nexus S</li>
-      <li>Samsung Showcase™</li>
-      <li>SANYO ZIO</li>
-      <li>Samsung Transform™</li>
-      <li>MOTOROLA XOOM™</li>
-      <li>Samsung Gem™</li>
-      <li>Nexus S</li>
-      <li>Samsung Showcase™</li>
-      <li>SANYO ZIO</li>
-      <li>Samsung Transform™</li>
+      <h3 class="text-center">Hot Sales</h3>
+      <ul
+        class="list-unstyled"
+        *ngFor="let item of stuff">
+          <li
+            *ngIf="item.discount"
+            id="table_hot_sale"
+            class="py-2">
+             <a
+              class="px-2"
+              id="hot_sales"
+              routerLink="/products/{{item.id}}"> {{item.name}}
+             </a>
+          </li>
+      </ul>
+
     </ul>
     <div class="col-sm-12 col-lg-9 text-dark text-center">
       <pagination-controls

@@ -45,14 +45,14 @@
               <span><strong>Infrared:</strong>  {{item.connectivity.infrared  == true ? 'Yes' : 'No' }} </span>
               <span><strong>Wi-Fi:</strong>  {{item.connectivity.wifi  == true ? 'Yes' : 'No'  }}  </span>
             </div>
-            <div class="d-flex flex-column align-items-end">
+            <div class="d-flex flex-column align-items-end" *ngIf="item.cameras">
               <h4 class="text-decoration-underline">Camera</h4>
               <span><strong>Primary:</strong>  {{item.camera.primary}} </span>
               <span><strong>Faeture:</strong>  {{item.camera.features}}</span>
             </div>
           </div>
            <mat-card-content>
-            <p class="text-center">
+            <p class="text-center mt-2 border-top border-info border-2">
               {{ item.description}}
             </p>
           </mat-card-content>
@@ -61,7 +61,7 @@
               <button
                 type="button"
                 mat-raised-button color="primary"
-                class="buttons_home"
+                class="buttons_home mb-3"
                 aria-label="buy this device"
                 (click)="addToCart(item)">
                 <mat-icon>add_shopping_cart</mat-icon>
@@ -83,7 +83,7 @@
                   <strong>Price:</strong> {{ onePrice.price - (onePrice.price  / 100 * onePrice.discount) | currency}}
                 </span>
               </div>
-          </div>
+            </div>
           </mat-card-actions>
     </mat-card>
 

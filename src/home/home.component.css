@@ -13,6 +13,19 @@ input {
   letter-spacing: 1px;
 }
 
+ul {
+  text-decoration: none;
+}
+
+#table_hot_sale{
+  border: 1px solid salmon;
+}
+
+#hot_sales {
+  color: wheat;
+  text-decoration: none;
+}
+
 a:hover,
 a:focus {
   color: rgb(55, 145, 197);
@@ -32,6 +45,7 @@ img {
   width: 100px;
   aspect-ratio: 1;
 }
+
 img:hover,
 img:focus {
   cursor: pointer;
