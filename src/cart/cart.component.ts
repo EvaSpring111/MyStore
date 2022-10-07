@@ -35,8 +35,6 @@ export class CartComponent implements OnInit {
       this.cartService.getProducts()
       .subscribe(res => {
         this.products = res;
-        localStorage.setItem('dataSource', this.products.length);
-        console.log(localStorage.getItem('dataSource'));
         this.grandTotal = this.cartService.getTotalPrice();
         console.log('work');
       })
@@ -46,7 +44,6 @@ export class CartComponent implements OnInit {
   dataSource = this.products;
 
   ngOnInit(): void {
-
   }
 
   removeItem(age: number){

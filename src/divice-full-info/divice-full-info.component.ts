@@ -15,14 +15,11 @@ import { map, Observable, of, switchMap } from 'rxjs';
 
 })
 export class DiviceFullInfoComponent implements OnInit {
-  // stuff: Stuff[] = [];
-  // public productList : any ;
-  // public filterCategory : any
-  // id: string;
-  // totalLength: number = 4;
-  // item$: Observable<Stuff>;
    item: any;
    imgs: any;
+
+   stuff: Stuff[] = [];
+   public productList : any ;
 
   constructor(
     private stuffService: StuffService,
@@ -32,6 +29,19 @@ export class DiviceFullInfoComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
+      this.stuffService
+      .getStuff()
+      .subscribe((data: Stuff[]) => {
+        this.stuff = data;
+        this.productList = data;
+        this.productList.forEach((a: any) => {
+        Object.assign(a, {
+          quantity: 1,
+          total : a.discount ? a.price -(a.price  / 100 * a.discount) : a.price
+        });
+       });
+      });
+
       this.getDevice();
     }
 
@@ -43,8 +53,10 @@ export class DiviceFullInfoComponent implements OnInit {
         this.item = data;
         this.imgs = this.item.images;
         console.log(this.imgs)
-      });
+
+    })
   }
+
     addToCart(item: Stuff): void{
       this.cartService.addToCart(item);
     }
@@ -52,17 +64,12 @@ export class DiviceFullInfoComponent implements OnInit {
     goBack(): void {
       this.location.back();
     }
+
 }
 
 
-  //  ngOnInit() {
-  //     this.item$ = this.route.paramMap.pipe(
-  //       switchMap((params: ParamMap) =>
-  //         this.stuffService.getDevice(String(params.get('id')))
-  //         )
-  //       );
-  //        console.log('item$', this.item$);
-  //     }
+
+
 
 
 

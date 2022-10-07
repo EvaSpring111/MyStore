@@ -12,7 +12,12 @@
         </thead>
           <tbody>
             <tr *ngFor="let item of products; let i = index">
-              <td>{{item.name}}</td>
+              <td>
+                <a class="text-decoration-none"
+                routerLink="/products/{{item.id}}">
+                {{item.name}}
+                </a>
+              </td>
               <th style="width: 12%;"> {{item.price | currency}} </th>
               <th style="width: 12%;"> {{item.discount}} % </th>
               <td style="width: 12%;"> {{item.total}} </td>

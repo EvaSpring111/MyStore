@@ -21,9 +21,6 @@ a:focus {
 a, span {
   color: rgb(1, 12, 12);
 }
-button{
-  width: fit-content;
-}
 
 .buttons_home:hover,
 .buttons_home:focus {
@@ -34,6 +31,10 @@ button{
 img {
   width: 100px;
   aspect-ratio: 1;
+}
+img:hover,
+img:focus {
+  cursor: pointer;
 }
 
 mat-card-subtitle{

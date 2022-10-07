@@ -1,17 +1,16 @@
-.center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+#list_Of_devices{
+  font-weight: 400;
 }
-
+h4 {
+  font-family: 'Playfair Display';
+  font-style: normal;
+}
 .example-card {
   min-width: 300px;
 }
 
 mat-card {
-  width: 50vw;
+  width: 70vw;
 }
 
 #navbarToggleExternalContent {
@@ -27,7 +26,7 @@ mat-card {
 }
 
 img{
-  max-width: 500px;
+  max-width: 400px;
   min-width: 250px;
 }
 

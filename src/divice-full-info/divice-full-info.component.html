@@ -1,62 +1,109 @@
 <div class="container-fluid bg-dark text-light py-5" id="list_Of_devices">
   <button class="btn btn-outline-primary d-block my-5" (click)="goBack()">Go back</button>
-  <mat-card
-      *ngIf="item"
-      class="center mt-5 d-flex flex-row justify-content-around align-item-center text-cente"
-      id="mat_card"
-      class="example-card mb-4" id="card_header">
-        <mat-card-header class="mt-1">
-          <mat-card-title>
-            <a
-            class="text-decoration-none"
-            id="item_name"
-            aria-label="mobile name">
-            <h3 class="fw-bold">
-            {{item.name}}
-            </h3>
-          </a>
-          </mat-card-title>
-        </mat-card-header>
-        <div  id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active" *ngFor="let img of imgs">
-              <img src="/assets/{{img}}" class="d-block w-100 img-responsive" alt="mobile picture">
+  <div class="row mr-0">
+    <mat-card
+        *ngIf="item"
+        class="mt-4 ml-2 d-flex flex-row justify-content-around align-item-center text-cente col-lg-9 border-3 border-info "
+        id="mat_card"
+        class="example-card mb-4" id="card_header">
+          <mat-card-header class="mt-1">
+            <mat-card-title>
+              <a
+              class="text-decoration-none"
+              id="item_name"
+              aria-label="mobile name">
+              <h3 class="fw-bold">
+              {{item.name}}
+              </h3>
+            </a>
+            </mat-card-title>
+          </mat-card-header>
+          <div class="row">
+            <div  id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="/assets/{{item.images[0]}}" class="d-block w-100 img-responsive" alt="mobile picture">
+                </div>
+                <div class="carousel-item " *ngFor="let img of imgs">
+                  <img src="/assets/{{img}}" class="d-block w-100 img-responsive" alt="mobile picture">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <div class="d-flex flex-column align-items-start">
+              <h4>Connectivity</h4>
+              <span><strong>Bluetooth:</strong>  {{item.connectivity.bluetooth}} </span>
+              <span><strong>Cells:</strong>  {{item.connectivity.cell}} </span>
+              <span><strong>GPS:</strong>  {{item.connectivity.gps  == true ? 'Yes' : 'No' }}  </span>
+              <span><strong>Infrared:</strong>  {{item.connectivity.infrared  == true ? 'Yes' : 'No' }} </span>
+              <span><strong>Wi-Fi:</strong>  {{item.connectivity.wifi  == true ? 'Yes' : 'No'  }}  </span>
+            </div>
+            <div class="d-flex flex-column align-items-end">
+              <h4 class="text-decoration-underline">Camera</h4>
+              <span><strong>Primary:</strong>  {{item.camera.primary}} </span>
+              <span><strong>Faeture:</strong>  {{item.camera.features}}</span>
             </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-            <div class="container d-flex flex-column my-3 properties">
-              <mat-card-subtitle><strong>:</strong> {{item.camera.primary}}</mat-card-subtitle>
-              <mat-card-subtitle><strong>:</strong> {{item.camera.features}}</mat-card-subtitle>
-              <mat-card-subtitle><strong> :</strong> {{item.connectivity.bluetooth}}</mat-card-subtitle>
-            </div>
-        <mat-card-content>
-          <p class="text-center">
-            {{ item.description}}
-          </p>
-          <p class="text-center">
-            {{ item.availability}}
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-            <button
-            type="button"
-            mat-raised-button color="primary"
-            class="buttons_home"
-            aria-label="buy this device"
-            (click)="addToCart(item)"   >
-            <mat-icon>add_shopping_cart</mat-icon>
-            Add to cart
-           </button>
-        </mat-card-actions>
-  </mat-card>
+           <mat-card-content>
+            <p class="text-center">
+              {{ item.description}}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <div class="d-flex justify-content-evenly">
+              <button
+                type="button"
+                mat-raised-button color="primary"
+                class="buttons_home"
+                aria-label="buy this device"
+                (click)="addToCart(item)">
+                <mat-icon>add_shopping_cart</mat-icon>
+                Add to cart
+              </button>
+              <div
+                *ngFor="let onePrice of stuff">
+                  <!-- <span
+                    *ngIf="onePrice.id === item.id"
+                    aria-label="price of device"
+                    [style.text-decoration.]="item.discount ?
+                    'line-through' :  'none'">
+                  <strong>Price:</strong> {{onePrice.price | currency}}
+                </span> -->
+                <span
+                  *ngIf="onePrice.id === item.id"
+                  id="price_with_discont"
+                  aria-label="total price">
+                  <strong>Price:</strong> {{ onePrice.price - (onePrice.price  / 100 * onePrice.discount) | currency}}
+                </span>
+              </div>
+          </div>
+          </mat-card-actions>
+    </mat-card>
+
+  <div class="text-light float-rigth col-lg-3">
+    <div class=" d-flex fustify-content-end">
+      <h5><strong>Additiona Features: </strong> {{item.additionalFeatures}}</h5>
+    </div>
+    <div>
+      <h5>Android____ {{item.android.os}}</h5>
+      <h5>UI : {{item.android.ui}}</h5>
+      <h5>Availability____ {{ item.availability}}</h5>
+      <h4>Hardwear: </h4>
+      <h5>Accelerometer: {{item.hardware.accelerometer == true ? 'Yes' : 'No'}}</h5>
+      <h5>AudioJack: {{item.hardware.audioJack}}</h5>
+      <h5>CPU: {{item.hardware.cpu}}</h5>
+      <h5>Radio-FM: {{item.hardware.fmRadio == true ? 'Yes' : 'No'}}</h5>
+      <h5>Keyboard: {{item.hardware.physicalKeyboard == true ? 'Yes' : 'No'}}</h5>
+      <h5>USB: {{item.hardware.usb }}</h5>
+    </div>
+  </div>
 </div>
 
 
