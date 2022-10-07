@@ -22,6 +22,7 @@ export class DiviceFullInfoComponent implements OnInit {
   // totalLength: number = 4;
   // item$: Observable<Stuff>;
    item: any;
+   imgs: any;
 
   constructor(
     private stuffService: StuffService,
@@ -40,6 +41,8 @@ export class DiviceFullInfoComponent implements OnInit {
       this.stuffService.getDevice(id)
       .subscribe(data => {
         this.item = data;
+        this.imgs = this.item.images;
+        console.log(this.imgs)
       });
   }
     addToCart(item: Stuff): void{

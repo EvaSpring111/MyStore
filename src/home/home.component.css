@@ -3,6 +3,7 @@ input {
   max-width: 240px;
   border-radius: 100px;
 }
+
 #mat_card {
   width: 25%;
   min-width: 350px;
@@ -20,6 +21,9 @@ a:focus {
 a, span {
   color: rgb(1, 12, 12);
 }
+button{
+  width: fit-content;
+}
 
 .buttons_home:hover,
 .buttons_home:focus {
@@ -28,16 +32,26 @@ a, span {
 }
 
 img {
-  width: 50px;
+  width: 100px;
   aspect-ratio: 1;
 }
+
 mat-card-subtitle{
   font-style: italic;
 }
 
 #price_with_discont {
-  color: brown;
+  color: greens;
   font-weight: 700;
+}
+
+#sale{
+  background: maroon;
+  border-radius: 50%;
+  padding: 3px;
+  color: bisque;
+  width: fit-content;
+  height: fit-content;
 }
 
 
