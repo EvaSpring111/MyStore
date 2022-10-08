@@ -3,10 +3,10 @@
   <div class="row mr-0">
     <mat-card
         *ngIf="item"
-        class="mt-4 px-3 d-flex flex-row justify-content-around align-item-center text-cente col-lg-9 border-3 border-info "
+        class="mt-4 px-3 d-flex flex-row justify-content-around align-item-center text-cente col-lg-9 border-5 border-info rounded"
         id="mat_card"
         class="example-card mb-4" id="card_header">
-          <mat-card-header class="mt-1">
+          <mat-card-header class="mt-1 d-flex flex-row">
             <mat-card-title>
               <a
               class="text-decoration-none"
@@ -17,15 +17,25 @@
               </h3>
             </a>
             </mat-card-title>
+            <div *ngIf="item.hardware.physicalKeyboard" class="d-flex flex-row ms-auto">
+              <mat-icon>stars</mat-icon>
+              <mat-icon>stars</mat-icon>
+              <mat-icon>stars</mat-icon>
+              <mat-icon>stars</mat-icon>
+              <mat-icon>stars</mat-icon>
+            </div>
           </mat-card-header>
           <div class="row">
+            <div *ngIf="item.camera.features !== null">
+              <mat-icon>thumb_up</mat-icon><mat-icon>theaters</mat-icon>
+            </div>
             <div  id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img src="/assets/{{item.images[0]}}" class="d-block w-100 img-responsive" alt="mobile picture">
+                  <img src="/assets/{{item.images[0]}}" class="d-block w-100 img-responsive rounded mx-auto" alt="mobile picture">
                 </div>
                 <div class="carousel-item " *ngFor="let img of imgs">
-                  <img src="/assets/{{img}}" class="d-block w-100 img-responsive" alt="mobile picture">
+                  <img src="/assets/{{img}}" class="d-block w-100 img-responsive rounded mx-auto" alt="mobile picture">
                 </div>
               </div>
               <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
@@ -37,28 +47,56 @@
                 <span class="visually-hidden">Next</span>
               </button>
             </div>
-            <div class="d-flex flex-column align-items-start">
-              <h4>Connectivity</h4>
-              <span><strong>Bluetooth:</strong>  {{item.connectivity.bluetooth}} </span>
-              <span><strong>Cells:</strong>  {{item.connectivity.cell}} </span>
-              <span><strong>GPS:</strong>  {{item.connectivity.gps  == true ? 'Yes' : 'No' }}  </span>
-              <span><strong>Infrared:</strong>  {{item.connectivity.infrared  == true ? 'Yes' : 'No' }} </span>
-              <span><strong>Wi-Fi:</strong>  {{item.connectivity.wifi  == true ? 'Yes' : 'No'  }}  </span>
-            </div>
-            <div class="d-flex flex-column align-items-end" *ngIf="item.cameras">
-              <h4 class="text-decoration-underline">Camera</h4>
-              <span><strong>Primary:</strong>  {{item.camera.primary}} </span>
-              <span><strong>Faeture:</strong>  {{item.camera.features}}</span>
+            <div class="row mt-3">
+              <div class="col d-flex flex-column align-items-center">
+                <h4>Connectivity</h4>
+                <span><strong>Bluetooth:</strong>  {{item.connectivity.bluetooth}}</span>
+                <span><strong>Cells:</strong>  {{item.connectivity.cell}} </span>
+                <span><strong>GPS:</strong>  {{item.connectivity.gps  == true ? 'Yes' : 'No' }}</span>
+                <span><strong>Infrared:</strong>  {{item.connectivity.infrared  == true ? 'Yes' : 'No' }}</span>
+                <span><strong>Wi-Fi:</strong>  {{item.connectivity.wifi  == true ? 'Yes' : 'No'  }}</span>
+              </div>
+              <div class="col d-flex flex-column align-items-center" *ngIf="item.battery">
+                <h4>Battery</h4>
+                <span><strong>Stand by time:</strong>  {{item.battery.standbyTime}}</span>
+                <span><strong>Talk time:</strong>  {{item.battery.talkTime}}</span>
+                <span><strong>Type</strong>  {{item.battery.type}}</span>
+              </div>
+              <div class="col d-flex flex-column align-items-center">
+                <h4 *ngIf="item.camera.primary || item.camera.features">Camera</h4>
+                <span *ngIf="item.camera.primary"><strong>Primary:</strong>  {{item.camera.primary}}</span>
+                <span *ngIf="(item.camera.features | typeof)  === 'Array<string>' "><strong>Faetures:</strong>  {{item.camera.features}}</span>
+              </div>
             </div>
           </div>
            <mat-card-content>
-            <p class="text-center mt-2 border-top border-info border-2">
+            <p class="text-center m-4 pt-2 border-top border-info border-2">
               {{ item.description}}
             </p>
+            <div class="row mt-4">
+              <div class="col d-flex flex-column align-items-center">
+                <h4>Display</h4>
+                <span><strong>Resolution:</strong>  {{item.display.screenResolution}}</span>
+                <span><strong>Size:</strong>  {{item.display.screenSize}}</span>
+                <span><strong>Touch Screen:</strong>  {{item.display.touchScreen  == true ? 'Yes' : 'No' }}</span>
+              </div>
+              <div class="col d-flex flex-column align-items-center" *ngIf="item.battery">
+                <h4>Dimensions</h4>
+                <span><strong>Width:</strong>  {{item.sizeAndWeight.dimensions[0]}}</span>
+                <span><strong>Heigth:</strong>  {{item.sizeAndWeight.dimensions[1]}}</span>
+                <span><strong>Depth</strong>  {{item.sizeAndWeight.dimensions[2]}}</span>
+                <span><strong>Weight</strong>  {{item.sizeAndWeight.weight}}</span>
+              </div>
+              <div class="col d-flex flex-column align-items-center" *ngIf="item.camera">
+                <h4 *ngIf="item.storage.flash || item.storage.ram">Storage</h4>
+                <span *ngIf="item.storage.ram"><strong>Ram:</strong>  {{item.storage.ram}}</span>
+                <span *ngIf="item.storage.flash"><strong>Flash:</strong>  {{item.storage.flash}}</span>
+              </div>
+            </div>
           </mat-card-content>
           <mat-card-actions>
-            <div class="d-flex justify-content-evenly">
-              <div *ngFor="let oneDevice of stuff">
+            <div class="d-flex justify-content-between align-items-center border-bottom">
+              <div *ngFor="let oneDevice of stuff" class="me-auto">
                 <button
                 *ngIf="oneDevice.id === item.id"
                   type="button"
@@ -71,19 +109,21 @@
                 </button>
               </div>
               <div
-                *ngFor="let oneDevice of stuff">
-                  <!-- <span
-                    *ngIf="onePrice.id === item.id"
+                *ngFor="let oneDevice of stuff"
+                class="d-flex flex-column align-items-end">
+                  <span
+                    *ngIf="oneDevice.id === item.id"
                     aria-label="price of device"
-                    [style.text-decoration.]="item.discount ?
+                    [style.text-decoration.]="oneDevice.discount ?
                     'line-through' :  'none'">
-                  <strong>Price:</strong> {{onePrice.price | currency}}
-                </span> -->
+                  <strong>Price:</strong> {{oneDevice.price | currency}}
+                </span>
                 <span
-                  *ngIf="oneDevice.id === item.id"
+                  class="p-2 ms-auto"
+                  *ngIf="oneDevice.id === item.id && oneDevice.discount"
                   id="price_with_discont"
                   aria-label="total price">
-                  <strong>Price:</strong> {{ oneDevice.price - (oneDevice.price  / 100 * oneDevice.discount) | currency}}
+                  <strong>New price:</strong> {{ oneDevice.price - (oneDevice.price  / 100 * oneDevice.discount) | currency}}
                 </span>
               </div>
             </div>
@@ -92,19 +132,19 @@
 
   <div class="text-light float-rigth col-lg-3">
     <div class=" d-flex fustify-content-end">
-      <h5><strong>Additiona Features: </strong> {{item.additionalFeatures}}</h5>
+      <h5><h4>Additiona Features:</h4> {{item?.additionalFeatures}}</h5>
     </div>
     <div>
-      <h5>Android____ {{item.android.os}}</h5>
-      <h5>UI : {{item.android.ui}}</h5>
-      <h5>Availability____ {{ item.availability}}</h5>
+      <h5>{{item?.android?.os}}</h5>
+      <h5 *ngIf="item?.android?.ui">UI : {{item?.android?.ui}}</h5>
+      <h5>Availability____ {{ item?.availability}}</h5>
       <h4>Hardwear: </h4>
-      <h5>Accelerometer: {{item.hardware.accelerometer == true ? 'Yes' : 'No'}}</h5>
-      <h5>AudioJack: {{item.hardware.audioJack}}</h5>
-      <h5>CPU: {{item.hardware.cpu}}</h5>
-      <h5>Radio-FM: {{item.hardware.fmRadio == true ? 'Yes' : 'No'}}</h5>
-      <h5>Keyboard: {{item.hardware.physicalKeyboard == true ? 'Yes' : 'No'}}</h5>
-      <h5>USB: {{item.hardware.usb }}</h5>
+      <h5>Accelerometer_____ {{item?.hardware?.accelerometer == true ? 'Yes' : 'No'}}</h5>
+      <h5>AudioJack____ {{item?.hardware?.audioJack}}</h5>
+      <h5>CPU____ {{item?.hardware?.cpu}}</h5>
+      <h5>Radio-FM____ {{item?.hardware?.fmRadio == true ? 'Yes' : 'No'}}</h5>
+      <h5>Keyboard___ {{item?.hardware?.physicalKeyboard == true ? 'Yes' : 'No'}}</h5>
+      <h5>{{item?.hardware?.usb }}</h5>
     </div>
   </div>
 </div>

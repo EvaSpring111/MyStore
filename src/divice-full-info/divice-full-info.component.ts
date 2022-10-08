@@ -5,7 +5,9 @@ import { Location } from '@angular/common';
 import { Stuff } from 'src/model/Stuff.interface';
 import { StuffService } from 'src/services/stuff.service';
 import { CartService } from 'src/services/shopping-cart.service';
-import { map, Observable, of, switchMap } from 'rxjs';
+import { DeviceDescription } from 'src/model/DeviceDescription.interface';
+
+import { TypeofPipe  } from 'src/filters/typeof.pipe';
 
 
 @Component({
@@ -15,8 +17,9 @@ import { map, Observable, of, switchMap } from 'rxjs';
 
 })
 export class DiviceFullInfoComponent implements OnInit {
-   item: any;
-   imgs: any;
+
+   item: DeviceDescription | undefined;
+   imgs: string[] = [];
 
    stuff: Stuff[] = [];
    public productList : any ;
@@ -47,13 +50,12 @@ export class DiviceFullInfoComponent implements OnInit {
 
     getDevice(): void {
       let id = this.route.snapshot.paramMap.get("id");
-
-      this.stuffService.getDevice(id)
-      .subscribe(data => {
+      let dataSource =  this.stuffService.getDevice(id)
+      .subscribe((data: DeviceDescription) => {
         this.item = data;
         this.imgs = this.item.images;
         console.log(this.imgs)
-
+        return dataSource
     })
   }
 
@@ -63,6 +65,11 @@ export class DiviceFullInfoComponent implements OnInit {
 
     goBack(): void {
       this.location.back();
+    }
+
+    getType(val: any) {
+      console.log("Function call ", typeof val);
+     return typeof val;
     }
 
 }

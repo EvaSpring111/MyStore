@@ -14,6 +14,7 @@ import { CartService  } from 'src/services/shopping-cart.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FilterPipe } from 'src/filters/filter.pipe';
 import { SearchFilter } from 'src/filters/searchFilter.pipe';
+import { TypeofPipe } from 'src/filters/typeof.pipe';
 import { FilterPipeScreen } from 'src/filters/filterScreem.pipe'
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -45,6 +46,7 @@ import { AppRoutingModule } from './app-routing.module';
     CartComponent,
     FilterPipe,
     SearchFilter,
+    TypeofPipe
   ],
   providers: [
     StuffService,

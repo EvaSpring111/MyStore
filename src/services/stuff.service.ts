@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Observable, of, Subject, throwError } from 'rxjs';
-import { catchError, map, } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import * as rxjs from 'rxjs';
 import { Stuff } from 'src/model/Stuff.interface';
+import { DeviceDescription } from 'src/model/DeviceDescription.interface';
 
 @Injectable({ providedIn: 'root' })
 
@@ -19,10 +20,10 @@ export class StuffService {
    return this.http.get<Stuff[]>(this.clientUrl)
   }
 
-  getDevice(id: string | null): Observable<Stuff> {
+  getDevice(id: string | null): Observable<DeviceDescription> {
     console.log('2', id)
     const url = `${this.Url}/${id}.json`;
-    return this.http.get<Stuff>(url);
+    return this.http.get<DeviceDescription>(url);
   }
 
 

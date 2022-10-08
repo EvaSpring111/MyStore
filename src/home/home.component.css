@@ -18,7 +18,17 @@ ul {
 }
 
 #table_hot_sale{
-  border: 1px solid salmon;
+  border: 1px ridge  rgb(252, 146, 134);
+}
+
+#table_hot_sale a {
+  color: wheat;
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  font-size: .9rem;
+  line-height: 1.5;
 }
 
 #hot_sales {
@@ -35,6 +45,10 @@ a, span {
   color: rgb(1, 12, 12);
 }
 
+.buttons_home{
+  height: min-content;
+}
+
 .buttons_home:hover,
 .buttons_home:focus {
   transform: translateY(-0.25rem);
@@ -43,7 +57,7 @@ a, span {
 
 img {
   width: 100px;
-  aspect-ratio: 1;
+  height: auto;
 }
 
 img:hover,

@@ -1,16 +1,23 @@
 #list_Of_devices{
   font-weight: 400;
 }
+
 h4 {
-  font-family: 'Playfair Display';
+
   font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  font-size: 1.1rem;
+  line-height: 1.5;
 }
+
 .example-card {
   min-width: 300px;
 }
 
 mat-card {
-  width: 70vw;
+  width: 65vw;
+  margin-left: 5%;
 }
 
 #navbarToggleExternalContent {
@@ -25,7 +32,8 @@ mat-card {
   font-weight: 900;
 }
 
-img{
+img {
+  max-height: 600px;
   max-width: 400px;
   min-width: 250px;
 }

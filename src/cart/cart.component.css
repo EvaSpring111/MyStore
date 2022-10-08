@@ -2,10 +2,18 @@
   margin-top: 500px;
 }
 
+th {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+
 .card-table {
   width: 100vw;
 }
-
 
 .card {
   height: 60vh;
@@ -24,7 +32,7 @@
 }
 
 table thead {
-  padding-top: 300px;
+  padding-top: 700px;
 }
 
 table tr {
@@ -34,6 +42,7 @@ table tr {
   font-style: normal;
   letter-spacing: 1px;
   text-decoration: none;
+  line-height: 1.5;
 }
 
 .center {
