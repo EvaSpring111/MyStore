@@ -1,4 +1,4 @@
-export class Form{
+export class Form {
 
   constructor(
     public userName:string,
