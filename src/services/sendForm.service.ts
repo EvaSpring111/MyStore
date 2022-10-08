@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Form } from '../app/form';
+import { Form } from 'src/app/form';
 
 @Injectable()
 export class HttpService{

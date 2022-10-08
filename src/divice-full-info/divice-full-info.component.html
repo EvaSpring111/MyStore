@@ -58,17 +58,20 @@
           </mat-card-content>
           <mat-card-actions>
             <div class="d-flex justify-content-evenly">
-              <button
-                type="button"
-                mat-raised-button color="primary"
-                class="buttons_home mb-3"
-                aria-label="buy this device"
-                (click)="addToCart(item)">
-                <mat-icon>add_shopping_cart</mat-icon>
-                Add to cart
-              </button>
+              <div *ngFor="let oneDevice of stuff">
+                <button
+                *ngIf="oneDevice.id === item.id"
+                  type="button"
+                  mat-raised-button color="primary"
+                  class="buttons_home mb-3"
+                  aria-label="buy this device"
+                  (click)="addToCart(oneDevice)">
+                  <mat-icon>add_shopping_cart</mat-icon>
+                  Add to cart
+                </button>
+              </div>
               <div
-                *ngFor="let onePrice of stuff">
+                *ngFor="let oneDevice of stuff">
                   <!-- <span
                     *ngIf="onePrice.id === item.id"
                     aria-label="price of device"
@@ -77,10 +80,10 @@
                   <strong>Price:</strong> {{onePrice.price | currency}}
                 </span> -->
                 <span
-                  *ngIf="onePrice.id === item.id"
+                  *ngIf="oneDevice.id === item.id"
                   id="price_with_discont"
                   aria-label="total price">
-                  <strong>Price:</strong> {{ onePrice.price - (onePrice.price  / 100 * onePrice.discount) | currency}}
+                  <strong>Price:</strong> {{ oneDevice.price - (oneDevice.price  / 100 * oneDevice.discount) | currency}}
                 </span>
               </div>
             </div>

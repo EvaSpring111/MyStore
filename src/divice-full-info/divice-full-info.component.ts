@@ -57,8 +57,8 @@ export class DiviceFullInfoComponent implements OnInit {
     })
   }
 
-    addToCart(item: Stuff): void{
-      this.cartService.addToCart(item);
+    addToCart(oneDevice: Stuff): void{
+      this.cartService.addToCart(oneDevice);
     }
 
     goBack(): void {
