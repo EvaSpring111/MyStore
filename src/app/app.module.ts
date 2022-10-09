@@ -16,8 +16,6 @@ import { SearchFilter } from 'src/filters/searchFilter.pipe';
 import { TypeofPipe } from 'src/filters/typeof.pipe';
 
 import { NgxPaginationModule } from 'ngx-pagination';
-
-import { FilterPipeScreen } from 'src/filters/filterScreem.pipe'
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -25,7 +23,6 @@ import { MaterialExampleModule } from '../material.module';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
 
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -54,7 +51,8 @@ import { AppRoutingModule } from './app-routing.module';
     CartComponent,
     FilterPipe,
     SearchFilter,
-    TypeofPipe
+    TypeofPipe,
+
   ],
   providers: [
     StuffService,

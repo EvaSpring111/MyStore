@@ -54,6 +54,13 @@
                       </a>
                     </button>
                   </li>
+                  <li class="nav-item py-1">
+                    <button mat-raised-button color="primary" class="filterBtn">
+                      <a (click)="filterByPrice('< 100')">
+                          < 100$
+                      </a>
+                    </button>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -63,7 +70,7 @@
          Hot Sales
       </h3>
       <ul
-        class="list-unstyled"
+        class="list-unstyled px-3"
         *ngFor="let item of stuff">
           <li
             *ngIf="item.discount"
@@ -82,9 +89,9 @@
         class="btn-group btn-outline-primary mt-5 my-pagination text-light"
         (pageChange)="page = $event">
       </pagination-controls>
-      <div class="d-flex flex-row justify-content-evenly flex-wrap gap-4">
+      <div class="px-3 d-flex flex-row justify-content-evenly flex-wrap gap-4">
         <div
-          class="row col-sm-11 col-md-6 col-lg-5"
+          class="row col-sm-11 col-md-6 col-lg-6 col-xl-6"
           *ngFor="let item of filterCategory | searchFilter:searchvalue | paginate: {
             itemsPerPage: 6,
             currentPage: page,

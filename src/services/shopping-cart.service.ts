@@ -39,8 +39,8 @@ export class CartService {
     }
 
     removeCartItem(item: any){
-      this.cartItemList.map((a:any, index:any)=>{
-        if(item.age === a.age){
+      this.cartItemList.map((a:any, index: any)=>{
+        if(item.id === a.id){
           this.cartItemList.splice(index, 1);
         }
       })

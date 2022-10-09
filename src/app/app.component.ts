@@ -59,12 +59,6 @@ export class AppComponent implements OnInit {
       href: "tel:8 (812) 123-45-67",
     },
     {
-      routerLink: "deviceFullInfo",
-      ariaLabel: "deviceFullInfo",
-      title: "Device Full Info",
-      href: "#",
-    },
-    {
       routerLink: "",
       ariaLabel: "Suplier",
       title: "Suplier",

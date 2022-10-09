@@ -56,9 +56,7 @@ export class CartComponent implements OnInit {
     console.log('Cart has: ', JSON.parse(this.localStore.getData('id$')));
     this.grandtal = JSON.parse(this.localStore.getData('id$'));
   })
-
   }
-
 
   removeItem(age: number){
     this.cartService.removeCartItem(age);
@@ -114,4 +112,3 @@ export class CartComponent implements OnInit {
   //  .unsubscribe();
   // }
 }
-

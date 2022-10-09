@@ -6,6 +6,7 @@ import { SearchFilter } from 'src/filters/searchFilter.pipe';
 import { Stuff } from 'src/model/Stuff.interface';
 import { StuffService } from 'src/services/stuff.service';
 import { CartService } from 'src/services/shopping-cart.service';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +19,7 @@ export class HomeComponent implements OnInit {
 
   stuff: Stuff[] = [];
   public filterCategory : any;
+  public filterByPrice: any;
 
   public productList : any ;
   productsPerPage: number = 4;
@@ -27,7 +29,7 @@ export class HomeComponent implements OnInit {
     private stuffService: StuffService,
     private route: ActivatedRoute,
     private cartService: CartService,
-    public searchFilter:SearchFilter) {}
+    public searchFilter: SearchFilter) {}
 
   searchvalue: string = "";
 
@@ -44,6 +46,7 @@ export class HomeComponent implements OnInit {
       this.totalLength = data.length;
       this.productList = data;
       this.filterCategory = data;
+      this.filterByPrice = data;
       this.productList.forEach((a: any) => {
         if(a.type === "phone"){
           a.type = "phone"
