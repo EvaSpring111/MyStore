@@ -33,7 +33,7 @@
                 <button
                   class="col"
                   mat-mini-fab mat-raised-button color="warn"
-                  matTooltip="Best price only today!">
+                  matTooltip="Best price till {{ propositionDate | date: 'dd.MM.yyyy' }}">
                   <mat-icon>today</mat-icon>
                 </button>
               </div>
@@ -149,7 +149,7 @@
       <div class="d-flex fustify-content-end" *ngIf="(item?.additionalFeatures | typeof ) !== 'undefined' ">
         <h5><h4>Additiona Features:</h4> {{item?.additionalFeatures}}</h5>
       </div>
-      <div>
+      <div class="d-flex flex-column align-items-center">
         <h5>{{item?.android?.os}}</h5>
         <h5 *ngIf="item?.android?.ui">UI : {{item?.android?.ui}}</h5>
         <h5>Availability____ {{ item?.availability}}</h5>

@@ -24,6 +24,9 @@ export class DiviceFullInfoComponent implements OnInit {
    stuff: Stuff[] = [];
    public productList : any ;
 
+   date = new Date();
+   propositionDate = this.date.setDate(this.date.getDate() + 7);
+
   constructor(
     private stuffService: StuffService,
     private cartService: CartService,

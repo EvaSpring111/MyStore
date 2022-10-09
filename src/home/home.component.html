@@ -142,14 +142,14 @@
           </p>
         </mat-card-content>
         <div class="d-flex align-items-start border-3 border-top border-info gap-1 mb-3">
-          <div class="d-flex flex-column ">
+          <div class="d-flex flex-column my-3">
             <span
               aria-label="price of device"
               [style.text-decoration.]="item.discount ?
               'line-through' :  'none'">
              <strong> Price: </strong> {{ item.price | currency }}
             </span>
-            <span id="sale"
+            <span id="sale" class="my-2"
               *ngIf="item.discount > 0"
               aria-label="discount">
               -{{ item.discount }}%</span>
