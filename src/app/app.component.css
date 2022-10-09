@@ -2,6 +2,20 @@
   border-bottom: solid 5px rgb(189, 233, 233);
 }
 
+#nav-items{
+  border-top: 1px solid  white;
+  border-bottom: 1px solid white;
+  width: 90%;
+}
+
+#nav-link {
+  width: max-content;
+}
+
+a {
+  text-decoration: none;
+}
+
 a:hover,
 a:focus{
   color: aqua;
@@ -15,6 +29,12 @@ a:focus{
 footer {
   width: 100vw;
   height: min-content;
+}
+
+@media  (min-width : 1000px) {
+  #nav-items{
+    border: none
+  }
 }
 
 

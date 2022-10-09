@@ -18,7 +18,8 @@ ul {
 }
 
 #table_hot_sale{
-  border: 1px ridge  rgb(252, 146, 134);
+  border-top: 1px ridge  rgb(252, 159, 149);
+  border-bottom: 1px ridge  rgb(252, 159, 149);
 }
 
 #table_hot_sale a {
@@ -44,7 +45,6 @@ a:focus {
 a, span {
   color: rgb(1, 12, 12);
 }
-
 
 .buttons_home{
   height: min-content;

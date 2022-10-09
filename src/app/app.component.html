@@ -30,8 +30,9 @@
         <div class="offcanvas-body">
           <ul
           class="nav_font navbar-nav d-flex align-items-center">
-            <li *ngFor="let nav of headerNav" class="nav-items">
+            <li *ngFor="let nav of headerNav" class="nav-items " id="nav-items">
               <a
+              id="nav-link"
               routerLink="{{nav.routerLink}}"
               class="nav-link"
               aria-current="page"
@@ -40,7 +41,7 @@
                 {{nav.title}}</a>
             </li>
           </ul>
-          <button class="btn btn-outline-primary p-2 m-2">
+          <button class="btn btn-outline-primary p-2 m-2 ms-auto">
             <a
               routerLink="cart"
               class="text-decoration-none"
