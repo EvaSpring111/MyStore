@@ -3,7 +3,7 @@
     <div class="row mr-0">
       <mat-card
           *ngIf="item"
-          class="mt-4 px-3 d-flex flex-row justify-content-around align-item-center text-cente col-lg-9 border-5 border-info rounded"
+          class="mt-4 px-3 d-flex flex-row justify-content-around align-item-center text-cente col-sm-12 col-lg-9 border-5 border-info rounded"
           id="mat_card"
           class="example-card mb-4" id="card_header">
             <mat-card-header class="mt-1 d-flex flex-row">
@@ -64,21 +64,23 @@
                 </button>
               </div>
               <div class="row mt-3">
-                <div class="col d-flex flex-column align-items-center">
+                <div
+                  class="col-sm-12 col-md-6 col-lg-4 d-flex flex-column  align-items-center flex-wrap"
+                  *ngIf="item.connectivity">
                   <h4>Connectivity</h4>
-                  <span><strong>Bluetooth:</strong>  {{item.connectivity.bluetooth}}</span>
-                  <span *ngIf="item.connectivity.cell"><strong>Cells:</strong>  {{item.connectivity.cell}} </span>
-                  <span><strong>GPS:</strong>  {{item.connectivity.gps  == true ? 'Yes' : 'No' }}</span>
-                  <span><strong>Infrared:</strong>  {{item.connectivity.infrared  == true ? 'Yes' : 'No' }}</span>
-                  <span><strong>Wi-Fi:</strong>  {{item.connectivity.wifi  == true ? 'Yes' : 'No'  }}</span>
+                  <span><strong>Bluetooth:</strong>{{item.connectivity.bluetooth}}</span>
+                  <span><strong>GPS:</strong> {{item.connectivity.gps  == true ? 'Yes' : 'No' }}</span>
+                  <span><strong>Infrared:</strong> {{item.connectivity.infrared  == true ? 'Yes' : 'No' }}</span>
+                  <span><strong>Wi-Fi:</strong> {{item.connectivity.wifi  == true ? 'Yes' : 'No'  }}</span>
+                  <span *ngIf="item.connectivity.cell"><strong>Cells:</strong> {{item.connectivity.cell}}</span>
                 </div>
-                <div class="col d-flex flex-column align-items-center" *ngIf="item.battery">
+                <div class="col-sm-12 col-md-6 col-lg-4 d-flex flex-column align-items-center flex-wrap" *ngIf="item.battery">
                   <h4>Battery</h4>
-                  <span><strong>Stand by time:</strong>  {{item.battery.standbyTime}}</span>
-                  <span><strong>Talk time:</strong>  {{item.battery.talkTime}}</span>
-                  <span><strong>Type</strong>  {{item.battery.type}}</span>
+                  <span><strong>Stand by time:</strong> {{item.battery.standbyTime}}</span>
+                  <span><strong>Talk time:</strong> {{item.battery.talkTime}}</span>
+                  <span><strong>Type</strong> {{item.battery.type}}</span>
                 </div>
-                <div class="col d-flex flex-column align-items-center">
+                <div class="col-sm-12 col-md-6 col-lg-4 d-flex flex-column align-items-center flex-wrap" *ngIf="item.camera.primary || (item.camera.features | typeof)  === 'Array<string>'">
                   <h4 *ngIf="item.camera.primary || (item.camera.features | typeof)  === 'Array<string>'">Camera</h4>
                   <span *ngIf="item.camera.primary"><strong>Primary:</strong>  {{item.camera.primary}}</span>
                   <span *ngIf="(item.camera.features | typeof)  === 'Array<string>' "><strong>Faetures:</strong>  {{item.camera.features}}</span>
@@ -88,21 +90,21 @@
               <p class="text-center m-4 pt-2 border-top border-info border-2">
                 {{ item.description}}
               </p>
-              <div class="row mt-4">
-                <div class="col d-flex flex-column align-items-center">
+              <div class="row flex-wrap mt-4">
+                <div class="col-sm-12 col-md-6 col-lg-4 d-flex flex-column align-items-center" *ngIf="item.display">
                   <h4>Display</h4>
                   <span><strong>Resolution:</strong>  {{item.display.screenResolution}}</span>
                   <span><strong>Size:</strong>  {{item.display.screenSize}}</span>
                   <span><strong>Touch Screen:</strong>  {{item.display.touchScreen  == true ? 'Yes' : 'No' }}</span>
                 </div>
-                <div class="col d-flex flex-column align-items-center" *ngIf="item.battery">
+                <div class="col-sm-12 col-md-6 col-lg-4 d-flex flex-column align-items-center" *ngIf="item.sizeAndWeight">
                   <h4>Dimensions</h4>
                   <span><strong>Width:</strong>  {{item.sizeAndWeight.dimensions[0]}}</span>
                   <span><strong>Heigth:</strong>  {{item.sizeAndWeight.dimensions[1]}}</span>
                   <span><strong>Depth</strong>  {{item.sizeAndWeight.dimensions[2]}}</span>
                   <span><strong>Weight</strong>  {{item.sizeAndWeight.weight}}</span>
                 </div>
-                <div class="col d-flex flex-column align-items-center" *ngIf="item.camera">
+                <div class="col-sm-12 col-md-6 col-lg-4 d-flex flex-column align-items-center" *ngIf="item.storage.flash || item.storage.ram">
                   <h4 *ngIf="item.storage.flash || item.storage.ram">Storage</h4>
                   <span *ngIf="item.storage.ram"><strong>Ram:</strong>  {{item.storage.ram}}</span>
                   <span *ngIf="item.storage.flash"><strong>Flash:</strong>  {{item.storage.flash}}</span>

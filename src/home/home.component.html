@@ -2,7 +2,8 @@
   class="container-fluid bg-dark text-light py-5 d-flex flex-row flex-wrap"
   id="list_Of_devices">
     <ul class="col-sm-12 col-lg-3 mt-5 list-unstyled">
-      <div class="d-flex align-items-center">
+      <div class="row mb-3">
+      <div class="d-flex align-items-center col">
         <label for="filter" class="text-left">
           <mat-icon>search</mat-icon>
         </label>
@@ -11,61 +12,64 @@
         class="form-control col-1 col-sm-6 "
         placeholder="Enter device name to search.."/>
       </div>
-      <li>
-        <nav class="navbar bg-dark fixed-left">
-          <button
-              class="navbar-toggler mt-1"
-              type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#filrtNavbar"
-              aria-controls="filrtNavbar"
-              mat-mini-fab color="warn">
-                <mat-icon>filter_list</mat-icon>
-          </button>
-          <div
-              class="offcanvas offcanvas-end"
-              tabindex="-1"
-              id="filrtNavbar"
-              aria-labelledby="filrtNavbar">
-              <div class="offcanvas-header">
-                <h3 class="offcanvas-title text-dark" id="filter">Filters</h3>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-              </div>
-              <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-end flex-grow-1">
-                  <li class="nav-item py-1">
-                    <button mat-raised-button color="primary" class="filterBtn ">
-                      <a (click)="filterType('')" >
-                          All products
-                      </a>
-                    </button>
-                  </li>
-                  <li class="nav-item py-1">
-                    <button mat-raised-button color="primary" class="filterBtn">
-                      <a (click)="filterType('phone')" >
-                          Mobiles
-                      </a>
-                    </button>
-                  </li>
-                  <li class="nav-item py-1">
-                    <button mat-raised-button color="primary" class="filterBtn">
-                      <a (click)="filterType('tablet')">
-                          Tablet
-                      </a>
-                    </button>
-                  </li>
-                  <li class="nav-item py-1">
-                    <button mat-raised-button color="primary" class="filterBtn">
-                      <a (click)="filterByPrice('< 100')">
-                          < 100$
-                      </a>
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            </div>
-        </nav>
-      </li>
+      <div class="col">
+          <li>
+            <nav class="navbar bg-dark fixed-left">
+              <button
+                  class="navbar-toggler mt-1"
+                  type="button"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#filrtNavbar"
+                  aria-controls="filrtNavbar"
+                  mat-mini-fab color="warn">
+                    <mat-icon>filter_list</mat-icon>
+              </button>
+              <div
+                  class="offcanvas offcanvas-end"
+                  tabindex="-1"
+                  id="filrtNavbar"
+                  aria-labelledby="filrtNavbar">
+                  <div class="offcanvas-header">
+                    <h3 class="offcanvas-title text-dark" id="filter">Filters</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  </div>
+                  <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1">
+                      <li class="nav-item py-1">
+                        <button mat-raised-button color="primary" class="filterBtn ">
+                          <a (click)="filterType('')" >
+                              All products
+                          </a>
+                        </button>
+                      </li>
+                      <li class="nav-item py-1">
+                        <button mat-raised-button color="primary" class="filterBtn">
+                          <a (click)="filterType('phone')" >
+                              Mobiles
+                          </a>
+                        </button>
+                      </li>
+                      <li class="nav-item py-1">
+                        <button mat-raised-button color="primary" class="filterBtn">
+                          <a (click)="filterType('tablet')">
+                              Tablet
+                          </a>
+                        </button>
+                      </li>
+                      <li class="nav-item py-1">
+                        <button mat-raised-button color="primary" class="filterBtn">
+                          <a (click)="filterByPrice('< 100')">
+                              < 100$
+                          </a>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+            </nav>
+          </li>
+      </div>
+    </div>
       <h3 class="text-center">
          Hot Sales
       </h3>
@@ -149,7 +153,7 @@
               'line-through' :  'none'">
              <strong> Price: </strong> {{ item.price | currency }}
             </span>
-            <span id="sale" class="my-2"
+            <span id="sale" class=""
               *ngIf="item.discount > 0"
               aria-label="discount">
               -{{ item.discount }}%</span>
