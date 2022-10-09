@@ -36,14 +36,14 @@
                  class="big_btns"
                  (click)="emptycart()" class="btn btn-danger">
                    <mat-icon>remove_shopping_cart</mat-icon>
-                     Remove all
+
                </button>
              </td>
              <td><button
                class="big_btns"
                routerLink="/" class="btn btn-primary">
                <mat-icon>shopping_basket</mat-icon>
-                 Shop More</button></td>
+                </button></td>
              <td><strong>Total: {{ grandtal | currency}}</strong></td>
            </tr>
          </tbody>
@@ -75,9 +75,25 @@
          <mat-error *ngIf="email.invalid">{{getMailErrorMessage()}}</mat-error>
        </mat-form-field>
      </div>
-     <button mat-raised-button color="primary" type="submit" class="mb-4 mt-3">
+     <button mat-raised-button data-bs-toggle="modal" data-bs-target="#Modal" color="primary" type="submit" class="mb-4 mt-3">
        <mat-icon>payment</mat-icon>
        Purchase</button>
+       <div class="modal fade modal-dialog modal-dialog-centered text-dark" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="ModalLabel">Success purchap</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" *ngIf="checkoutForm">
+              <p>Thanks, {{(this.userName)}}</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
    </form>
 </div>
 

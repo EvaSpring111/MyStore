@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroupDirective } from '@angular/forms';
 import { FormControl, Validators } from '@angular/forms';
 import { Form } from 'src/app/form';
 
@@ -13,7 +13,7 @@ import { LocalService } from 'src/services/local.service';
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
-  providers: [ HttpService ]
+  providers: [ HttpService]
 })
 export class CartComponent implements OnInit {
 
@@ -98,17 +98,16 @@ export class CartComponent implements OnInit {
   onSubmit(form: Form) {
     // this.products = this.cartService.removeAllCart();
     console.warn('Your order has been submitted', this.checkoutForm.value);
-
+    this.prod.reset();
     this.checkoutForm.reset();
     this.httpService.postData(form)
     .subscribe({
         next:(data: any) => {
           this.receivedDate = data;},
           error: error => console.log(error)
+
     });
   }
 
-  // ngOnDestroy(){
-  //  .unsubscribe();
-  // }
+
 }
