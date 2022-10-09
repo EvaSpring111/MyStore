@@ -72,7 +72,8 @@ export class DiviceFullInfoComponent implements OnInit {
      return typeof val;
     }
 
-}
+  }
+
 
 
 

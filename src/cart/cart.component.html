@@ -3,9 +3,9 @@
       <table class="table table-responsive table-dark table-hoveral col-sm-12 mt-5">
         <thead class="mt-5 py-5">
           <tr>
-            <th>Product Name</th>
+            <th>Device</th>
             <th>Price</th>
-            <th>Discount</th>
+            <th>Sale</th>
             <th>Final Price</th>
             <th>Delete</th>
           </tr>
@@ -18,12 +18,12 @@
                 {{item.name}}
                 </a>
               </td>
-              <td > {{item.price | currency}} </td>
-              <td > {{item.discount}} % </td>
-              <td > {{item.total | currency}} </td>
+              <td> {{item.price | currency}} </td>
+              <td> {{item.discount}} % </td>
+              <td> {{item.total | currency}} </td>
               <td>
                   <button (click)="removeItem(item)"
-                      mat-fab color="warn"
+                      mat-mini-fab color="warn"
                       aria-label="Icon button with a delete icon">
                     <mat-icon>delete</mat-icon>
                   </button>
@@ -44,7 +44,7 @@
                 routerLink="/" class="btn btn-primary">
                 <mat-icon>shopping_basket</mat-icon>
                   Shop More</button></td>
-              <td><strong>Total :  {{grandTotal | currency}}</strong></td>
+              <td><strong>Total: {{grandTotal | currency}}</strong></td>
             </tr>
           </tbody>
         </table>

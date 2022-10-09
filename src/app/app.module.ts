@@ -19,6 +19,8 @@ import { FilterPipeScreen } from 'src/filters/filterScreem.pipe'
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import  { MatTooltipModule } from '@angular/material/tooltip';
+
 
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -36,7 +38,8 @@ import { AppRoutingModule } from './app-routing.module';
     NgxPaginationModule,
     Ng2SearchPipeModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTooltipModule
 
   ],
   declarations: [
