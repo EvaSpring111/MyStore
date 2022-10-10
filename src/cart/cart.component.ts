@@ -23,15 +23,16 @@ export class CartComponent implements OnInit {
   public prod : any = [];
   public grandTotal !: number;
   public grandtal !: number;
-  cart:any
+  cart: any
 
   checkoutForm = this.formBuilder.group({
     userName: '',
     address: '',
-    email: ''
+    email: '',
+    mobileNumber: '',
   });
 
-  form: Form = new Form("", "", "")
+  form: Form = new Form("", "", "",  0)
 
   receivedDate: Form | undefined;
 
@@ -98,14 +99,26 @@ export class CartComponent implements OnInit {
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
-  onSubmit(form: Form) {
-    if (this.email.hasError('required') || this.address.hasError('required') || this.userName.hasError('required')){
+  mobileNumber = new FormControl('', [Validators.required,  Validators.pattern('[- +()0-9]+')])
 
-      return
+  getMobileErrorMessage() {
+    if (this.mobileNumber.hasError('required') || this.mobileNumber.hasError('pattern')){
+      return `Please, enter your mobile number.
+              Sample (098)1234567`;
     }
+    return this.mobileNumber.hasError('mobileNumber') ? 'Not a valid number' : '';
+  }
+
+
+  onSubmit(form: Form) {
+    // if ( this.userName.hasError('required') ){
+    //   console.log('error', console.error());
+    //   return
+    // }
     console.warn('Your order has been submitted', this.checkoutForm.value);
-    this.prod = this.cartService.removeAllCart();
+
     this.checkoutForm.reset();
+    this.prod.length = 0;
     this.httpService.postData(form)
     .subscribe({
         next:(data: any) => {

@@ -66,9 +66,9 @@ export class AppComponent implements OnInit {
       href: "#",
     },
     {
-      routerLink: "",
-      ariaLabel: "Suplier",
-      title: "Suplier",
+      routerLink: "contacts",
+      ariaLabel: "contacts",
+      title: "Contacts",
       href: "#",
     },  {
       routerLink: "",

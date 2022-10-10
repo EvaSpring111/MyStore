@@ -45,6 +45,9 @@ import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {CdkMenuModule} from '@angular/cdk/menu';
 import {DialogModule} from '@angular/cdk/dialog';
+import { NotFoundComponent } from './not-found/not-found.component';
+
+import { ContactsComponent } from 'src/contacts/contacts.component';
 
 
 
@@ -99,9 +102,8 @@ import {DialogModule} from '@angular/cdk/dialog';
     DialogModule,
   ],
   declarations: [
-
-
-
+    NotFoundComponent,
+    ContactsComponent
   ]
 })
 export class MaterialExampleModule {}

@@ -8,7 +8,7 @@ export class HttpService{
     constructor(private http: HttpClient){ }
 
     postData(form: Form){
-        const body = { userName: form.userName, address: form.address, email: form.email} ;
-        return this.http.post('https://62e271cf3891dd9ba8e865f4.mockapi.io/Su', body);
+        const body = { userName: form.userName, address: form.address, email: form.email, mobileNumber: form.mobileNumber} ;
+        return this.http.post('https://63444a5ddcae733e8fdc290a.mockapi.io/Store', body);
     }
 }

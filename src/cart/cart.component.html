@@ -36,7 +36,6 @@
                  class="big_btns"
                  (click)="emptycart()" class="btn btn-danger">
                    <mat-icon>remove_shopping_cart</mat-icon>
-
                </button>
              </td>
              <td><button
@@ -55,7 +54,7 @@
     [formGroup]="checkoutForm"
     (ngSubmit)="onSubmit(form.value)"
     class="mt-5 text-center text-ligth">
-     <div class="checkout" [hidden]="form.submitted">
+     <div class="checkout">
        <mat-form-field appearance="fill" >
          <mat-label>Name</mat-label>
          <input
@@ -72,20 +71,47 @@
          <mat-error *ngIf="userName.invalid">{{getNameErrorMessage()}}</mat-error>
        </mat-form-field>
      </div>
-     <div class="checkout">
+     <div class="checkout" >
        <mat-form-field appearance="fill">
          <mat-label>Address</mat-label>
-         <input id="address" type="text" formControlName="address" matInput placeholder="Some Street, 99"  required for="address">
+         <input
+            id="address"
+            type="text"
+            formControlName="address"
+            matInput
+            placeholder="Some Street, 99"
+            required
+            for="address">
          <mat-error *ngIf="address.invalid">{{getAddressErrorMessage()}}</mat-error>
        </mat-form-field>
      </div>
      <div class="checkout">
        <mat-form-field appearance="fill">
          <mat-label>E-mail</mat-label>
-         <input ngModel [email]="true"   id="email" type="email" formControlName="email" matInput placeholder="yourt@mail.com"  required for="mail">
+         <input
+            id="email"
+            type="email"
+            ormControlName="email"
+            matInput
+            placeholder="yourt@mail.com"
+            required
+            for="mail">
          <mat-error *ngIf="email.invalid">{{getMailErrorMessage()}}</mat-error>
-
        </mat-form-field>
+     </div>
+     <div class="checkout" >
+      <mat-form-field appearance="fill" >
+        <mat-label>Mobile</mat-label>
+        <input
+           id="mobileNumber"
+           formControlName="mobileNumber"
+           matInput
+           placeholder="(093)180-10-89"
+           required
+           pattern="[- +()0-9]+"
+           for="mobileNumber" >
+        <mat-error *ngIf="mobileNumber.invalid">{{getMobileErrorMessage()}}</mat-error>
+      </mat-form-field>
      </div>
      <button
         id="submitBtn"
@@ -95,23 +121,6 @@
         class="mb-4 mt-3">
        <mat-icon>payment</mat-icon>
        Purchase</button>
-       <!-- <div class="modal fade modal-dialog modal-dialog-centered text-dark" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="ModalLabel">Success purchap</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body" *ngIf="checkoutForm">
-              <p>Thanks, {{(this.userName)}}</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
    </form>
 </div>
 
