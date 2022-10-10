@@ -88,3 +88,9 @@ mat-card-subtitle{
 }
 
 
+@media  (max-width: 500px) {
+  #Hot_sale, #table_hot_sale{
+    display: none;
+  }
+
+}
