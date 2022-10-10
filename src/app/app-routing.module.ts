@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from 'src/home/home.component';
 import { DiviceFullInfoComponent } from 'src/divice-full-info/divice-full-info.component';
 import { CartComponent } from 'src/cart/cart.component';
+import { NotFoundComponent } from 'src/not-found/not-found.component';
 
 const routes: Routes = [
   { path: 'products/:id', component: DiviceFullInfoComponent },
@@ -11,7 +12,7 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent  },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   // { path: 'deviceFullInfo', component: DiviceFullInfoComponent  },
-  // { path: 'shipping', component: ShippingComponent  },
+  { path: '**', component: NotFoundComponent  },
 ];
 
 @NgModule({

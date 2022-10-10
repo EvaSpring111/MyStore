@@ -19,7 +19,7 @@ export class CartService {
     }
 
     setProduct( item: Stuff[]){
-      this.cartItemList.push(...item);
+      this.cartItemList.push(item);
       this.productList.next(item)
     }
 

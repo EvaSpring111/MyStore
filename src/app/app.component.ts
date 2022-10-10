@@ -15,6 +15,7 @@ import { HeaderNav } from 'src/model/HeaderNav.interface';
 export class AppComponent implements OnInit {
   title = 'MyStore';
 
+
   public totalItem : number = 0;
   public searchTerm !: string;
   searchvalue: any;

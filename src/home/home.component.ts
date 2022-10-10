@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { SearchFilter } from 'src/filters/searchFilter.pipe';
 
 import { Stuff } from 'src/model/Stuff.interface';
+import { IProductPriceLimit } from 'src/model/ProductPriceLimit.interface'
+
 import { StuffService } from 'src/services/stuff.service';
 import { CartService } from 'src/services/shopping-cart.service';
 import { AppComponent } from 'src/app/app.component';
@@ -15,7 +17,18 @@ import { AppComponent } from 'src/app/app.component';
   providers: [ SearchFilter]
 })
 
+
+
 export class HomeComponent implements OnInit {
+
+
+  @Input() priceMinFilter?: number | null | undefined;
+  @Input() priceMaxFilter?: number | null | undefined;
+
+  filterPrice(filter: IProductPriceLimit) {
+    this.priceMinFilter = filter.priceMin;
+    this.priceMaxFilter = filter.priceMax;
+  }
 
   stuff: Stuff[] = [];
   public filterCategory : any;
@@ -29,7 +42,10 @@ export class HomeComponent implements OnInit {
     private stuffService: StuffService,
     private route: ActivatedRoute,
     private cartService: CartService,
-    public searchFilter: SearchFilter) {}
+    public searchFilter: SearchFilter) {
+      this.priceMinFilter = 0;
+      this.priceMaxFilter = 0;
+    }
 
   searchvalue: string = "";
 
@@ -60,6 +76,8 @@ export class HomeComponent implements OnInit {
         });
       });
     });
+
+
   }
 
   addToCart(item: Stuff): void{
@@ -74,7 +92,8 @@ export class HomeComponent implements OnInit {
       }
     })
   }
+  }
 
 
-}
+
 

@@ -46,7 +46,6 @@ import {OverlayModule} from '@angular/cdk/overlay';
 import {CdkMenuModule} from '@angular/cdk/menu';
 import {DialogModule} from '@angular/cdk/dialog';
 
-import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -100,7 +99,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     DialogModule,
   ],
   declarations: [
-    NotFoundComponent,
+
+
 
   ]
 })

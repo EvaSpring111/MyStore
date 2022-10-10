@@ -68,10 +68,10 @@ export class CartComponent implements OnInit {
     this.cartService.removeAllCart();
   }
 
-  userName = new FormControl('', [Validators.required,  Validators.pattern('[a-zA-Zа-яА-Я ]*')])
+  userName = new FormControl('', [Validators.required,  Validators.pattern('[a-zA-Zа-яА-Я]*')])
 
   getNameErrorMessage() {
-    if (this.userName.hasError('required')){
+    if (this.userName.hasError('required') || this.userName.hasError('pattern')){
       return `Please, enter your name.
               Name could include only letters`;
     }
