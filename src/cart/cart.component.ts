@@ -1,7 +1,7 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 
 import { FormBuilder, FormGroupDirective } from '@angular/forms';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Form } from 'src/app/form';
 
 import { HttpService } from 'src/services/sendForm.service';
@@ -15,6 +15,8 @@ import { LocalService } from 'src/services/local.service';
   styleUrls: ['./cart.component.css'],
   providers: [ HttpService]
 })
+
+
 export class CartComponent implements OnInit {
 
   public products : any = [];
@@ -66,21 +68,22 @@ export class CartComponent implements OnInit {
     this.cartService.removeAllCart();
   }
 
-  userName = new FormControl('', [Validators.required]);
+  userName = new FormControl('', [Validators.required,  Validators.pattern('[a-zA-Zа-яА-Я ]*')])
 
   getNameErrorMessage() {
-    if (this.userName.hasError('required')) {
-      return 'You must enter your name';
+    if (this.userName.hasError('required')){
+      return `Please, enter your name.
+              Name could include only letters`;
     }
-
     return this.userName.hasError('userName') ? 'Not a valid name' : '';
   }
 
-  address = new FormControl('', [Validators.required]);
+
+  address = new FormControl('', [Validators.required],);
 
   getAddressErrorMessage() {
     if (this.address.hasError('required')) {
-      return 'You must enter your address';
+      return 'Please, enter your address';
     }
 
     return this.address.hasError('address') ? 'Not a valid address' : '';
@@ -90,15 +93,18 @@ export class CartComponent implements OnInit {
 
   getMailErrorMessage() {
     if (this.email.hasError('required')) {
-      return 'You must enter a value';
+      return 'Please,  enter your mail';
     }
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
   onSubmit(form: Form) {
-    // this.products = this.cartService.removeAllCart();
+    if (this.email.hasError('required') || this.address.hasError('required') || this.userName.hasError('required')){
+
+      return
+    }
     console.warn('Your order has been submitted', this.checkoutForm.value);
-    this.prod.reset();
+    this.prod = this.cartService.removeAllCart();
     this.checkoutForm.reset();
     this.httpService.postData(form)
     .subscribe({

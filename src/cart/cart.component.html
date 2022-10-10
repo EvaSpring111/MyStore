@@ -51,13 +51,23 @@
    </div>
    <form
     #form="ngForm"
+     ngNativeValidate
     [formGroup]="checkoutForm"
     (ngSubmit)="onSubmit(form.value)"
     class="mt-5 text-center text-ligth">
-     <div class="checkout">
+     <div class="checkout" [hidden]="form.submitted">
        <mat-form-field appearance="fill" >
          <mat-label>Name</mat-label>
-         <input id="userName" type="text" formControlName="userName" matInput placeholder="Inna Green" required for="userName" >
+         <input
+            id="userName"
+            type="text"
+            formControlName="userName"
+            matInput
+            placeholder="Inna Green"
+            required
+            minlength="2"
+            maxlength="25"
+            for="userName" >
          <mat-error *ngIf="userName.invalid">{{getNameErrorMessage()}}</mat-error>
        </mat-form-field>
      </div>
@@ -71,14 +81,20 @@
      <div class="checkout">
        <mat-form-field appearance="fill">
          <mat-label>E-mail</mat-label>
-         <input  id="email" type="email" formControlName="email" matInput placeholder="yourt@mail.com"  required for="mail">
+         <input ngModel [email]="true"   id="email" type="email" formControlName="email" matInput placeholder="yourt@mail.com"  required for="mail">
          <mat-error *ngIf="email.invalid">{{getMailErrorMessage()}}</mat-error>
+
        </mat-form-field>
      </div>
-     <button mat-raised-button data-bs-toggle="modal" data-bs-target="#Modal" color="primary" type="submit" class="mb-4 mt-3">
+     <button
+        id="submitBtn"
+        mat-raised-button
+        [disabled]="form.invalid"
+        color="primary" type="submit"
+        class="mb-4 mt-3">
        <mat-icon>payment</mat-icon>
        Purchase</button>
-       <div class="modal fade modal-dialog modal-dialog-centered text-dark" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+       <!-- <div class="modal fade modal-dialog modal-dialog-centered text-dark" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -93,7 +109,8 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
+
    </form>
 </div>
 
