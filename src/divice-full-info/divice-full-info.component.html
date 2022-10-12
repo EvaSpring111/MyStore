@@ -5,7 +5,7 @@
           *ngIf="item"
           class="mt-4 px-3 d-flex flex-row justify-content-around align-item-center text-cente col-sm-12 col-lg-9 border-5 border-info rounded"
           id="mat_card"
-          class="example-card mb-4" id="card_header">
+          class="device-card mb-4" id="card_header">
             <mat-card-header class="mt-1 d-flex flex-row">
               <mat-card-title>
                 <a
@@ -45,7 +45,7 @@
                   color="warn"><mat-icon>touch_app</mat-icon></button>
               </div>
             </div>
-              <div  id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+              <div  id="carouselDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
                     <img src="/assets/{{item.images[0]}}" class="d-block w-100 img-responsive rounded mx-auto" alt="mobile picture">
@@ -54,11 +54,11 @@
                     <img src="/assets/{{img}}" class="d-block w-100 img-responsive rounded mx-auto" alt="mobile picture">
                   </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselDark" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselDark" data-bs-slide="next">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
                 </button>
@@ -89,21 +89,21 @@
             <mat-card-content>
               <mat-tab-group dynamicHeight>
                 <mat-tab label="Description">
-                  <div class="example-small-box mat-elevation-z4">
+                  <div class="small-box mat-elevation-z4">
                     <p class="text-center m-4 pt-2 border-top border-info border-2">
                       {{ item.description}}
                     </p>
                   </div>
                 </mat-tab>
                 <mat-tab label="Additiona Features:">
-                  <div class="example-small-box mat-elevation-z4">
+                  <div class="small-box mat-elevation-z4">
                     <div class="d-flex fustify-content-start" >
                       <p> {{item.additionalFeatures}}</p>
                     </div>
                   </div>
                 </mat-tab>
                 <mat-tab label="Softwear an Hardwear">
-                  <div class="example-small-box mat-elevation-z4">
+                  <div class="small-box mat-elevation-z4">
                     <div class="d-flex flex-column align-items-start mt-3">
                       <h5>{{item.android?.os}}</h5>
                       <h5 *ngIf="item?.android?.ui">UI              : {{item.android?.ui}}</h5>

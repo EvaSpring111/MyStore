@@ -1,3 +1,24 @@
-.row {
-  margin-top: 80px;
+
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 1px;
 }
+
+.container {
+  margin-top: 60px;
+}
+
+h1, h3 {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-style: normals;
+  line-height: 1.5;
+  letter-spacing: 1px;
+}
+
+

@@ -48,6 +48,9 @@
          </tbody>
        </table>
    </div>
+   <h4>Hurry Up!</h4>
+   <p>Free delivery only till {{ freeShipping | date: 'dd.MM.yyyy' }}</p>
+   <h2 class="text-center">Customer contact details</h2>
    <form
     #form="ngForm"
      ngNativeValidate
@@ -106,12 +109,14 @@
            id="mobileNumber"
            formControlName="mobileNumber"
            matInput
+           type="tel"
            placeholder="(093)180-10-89"
            required
            pattern="[- +()0-9]+"
            for="mobileNumber" >
         <mat-error *ngIf="mobileNumber.invalid">{{getMobileErrorMessage()}}</mat-error>
       </mat-form-field>
+
      </div>
      <button
         id="submitBtn"

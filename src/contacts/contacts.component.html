@@ -1,34 +1,36 @@
 <div class="container-fluid bg-dark text-light">
-  <div class="row">
-    <div class="col-lg-8">
-        <mat-tab-group>
-           <mat-tab label="Kyiv">
-            <div class="col-sm-12 col-lg-9 text-dark text-center">
-              <div class="px-3 d-flex flex-row justify-content-center flex-wrap ">
-               <div class=" col-sm-12 col-md-6 col-lg-4 col-xl-4 text-light"
-                 >
-                  <div *ngFor="let item of kyivShop; let i = index" class="card my-2 border-5 border-info d-flex flex-column justify-content-between align-items-center h-65" style="width: 100%;">
-                    {{ item.img}}
-                    {{ item.mall}}
-                    {{ item.atrium}}
-                    {{ item.floor}}
-                    {{ item.phoneNumber}}
-                  </div>
+  <div class="container">
+    <h1 class="pt-5 pl-4 text-center">OUR BRANCHES</h1>
+    <div class="row">
+      <div class="col-lg-8 mt-1">
+          <mat-tab-group>
+            <mat-tab><ng-template mat-tab-label><h3>Kyiv</h3></ng-template>
+                <div class="px-3 d-flex flex-row justify-content-center flex-wrap ">
+                <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 text-dark">
+                    <div *ngFor="let item of kyivShop; let i = index"
+                    class=" bg-transparent card my-2 d-flex flex-column justify-content-between align-items-center h-65 text-light" style="width: 100%;">
+                     <img class="rounded-circle image-responsive w-50" src="{{item.img}}" alt="shop">
+                     {{item.mall}} <br>
+                     {{ item.atrium}} <br>
+                     {{ item.floor}} <br>
+                     {{ item.phoneNumber}} <br>
+                     </div>
+                </div>
               </div>
-            </div>
-            </div>
-            <div class="d-flex flex-row justify-content-around flex-wrap gap-4">
-              <div class="row col-sm-12 col-md-6 col-lg-4"
-              *ngFor="let item of kyivService; let i = index">
+
+              <div class="d-flex flex-row justify-content-around flex-wrap gap-4">
+                <div class="row col-sm-12 col-md-6 col-lg-4"
+                *ngFor="let item of kyivService; let i = index">
+                </div>
               </div>
-            </div>
-          </mat-tab>
-          <mat-tab label="L`viv"> Content 2 </mat-tab>
-          <mat-tab label="Odessa"> Content 3 </mat-tab>
-        </mat-tab-group>
-    </div>
-    <div class="col-lg-4">
-      <app-feed-back-form></app-feed-back-form>
+            </mat-tab>
+            <mat-tab><ng-template mat-tab-label><h3>Lviv</h3> </ng-template></mat-tab>
+            <mat-tab><ng-template mat-tab-label><h3>Oddesa</h3> </ng-template></mat-tab>
+          </mat-tab-group>
+      </div>
+      <div class="col-lg-4 my-5">
+        <app-feed-back-form></app-feed-back-form>
+      </div>
     </div>
   </div>
 </div>

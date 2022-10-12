@@ -128,5 +128,9 @@ export class CartComponent implements OnInit {
     });
   }
 
+  date = new Date();
+  freeShipping = this.date.setDate(this.date.getDate() + 3);
+
+
 
 }
