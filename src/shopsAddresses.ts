@@ -68,63 +68,63 @@ export const KYIVSHOP: ShopMall[]  = [
 
 export const LVIVSHOP: ShopMall[]  = [
   {
-    img: '/assets/img/shop.jpg',
+    img: '/assets/img/shopOd.jpg',
     mall: 'Lucky Strike Mall',
     atrium: 'Atrium Smoking Area',
     floor: '1st floor',
     phoneNumber: '0931801089'
   },
   {
-    img: '/assets/img/shop.jpg',
+    img: '/assets/img/shopOd.jpg',
     mall: 'Bohemian  Mall',
     atrium: ' Atrium Party hall',
     floor: '1st floor',
     phoneNumber: '0931801089'
   },
   {
-    img: '/assets/img/shop.jpg',
+    img: '/assets/img/shopOd.jpg',
     mall: 'Her Majesty Mall',
     atrium: 'Atrium  Britain',
     floor: '1st floor',
     phoneNumber: '0931801089'
   },
   {
-    img: '/assets/img/shop.jpg',
+    img: '/assets/img/shopOd.jpg',
     mall: 'Star wars Mall',
     atrium: 'Atrium Dark Side',
     floor: '1st floor',
     phoneNumber: '0931801089'
   },
   {
-    img: '/assets/img/shop.jpg',
+    img: '/assets/img/shopOd.jpg',
     mall: 'French Press Mall',
     atrium: 'Atrium  River',
     floor: '1st floor',
     phoneNumber: '0931801089'
   },
   {
-    img: '/assets/img/shop.jpg',
+    img: '/assets/img/shopOd.jpg',
     mall: 'Mountain Top Mall',
     atrium: 'Atrium High Hill',
     floor: '1st floor',
     phoneNumber: '0931801089'
   },
   {
-    img: '/assets/img/shop.jpg',
+    img: '/assets/img/shopOd.jpg',
     mall: 'South park Mallring',
     atrium: 'Atrium Cow farm',
     floor: '1st floor',
     phoneNumber: '0931801089'
   },
   {
-    img: '/assets/img/shop.jpg',
+    img: '/assets/img/shopOd.jpg',
     mall: 'Dry White Mall',
     atrium: 'Atrium Glass',
     floor: '1st floor',
     phoneNumber: '0931801089'
   },
   {
-    img: '/assets/img/shop.jpg',
+    img: '/assets/img/shopOd.jpg',
     mall: 'Deep Ocean Mall',
     atrium: 'Atrium Beach',
     floor: '1st floor',
@@ -134,63 +134,63 @@ export const LVIVSHOP: ShopMall[]  = [
 
 export const ODESSASHOP: ShopMall[]  = [
   {
-    img: '/assets/img/shop.jpg',
+    img: '/assets/img/storeLviv.jpg',
     mall: 'Rick and Morty Mall',
     atrium: 'Atrium Lab',
     floor: '1st floor',
     phoneNumber: '0931801089'
   },
   {
-    img: '/assets/img/shop.jpg',
+    img: '/assets/img/storeLviv.jpg',
     mall: 'Purple light Mall',
     atrium: 'Atrium Deep',
     floor: '1st floor',
     phoneNumber: '0931801089'
   },
   {
-    img: '/assets/img/shop.jpg',
+    img: '/assets/img/storeLviv.jpg',
     mall: 'Alexandria Mall',
     atrium: 'Atrium Athens',
     floor: '1st floor',
     phoneNumber: '0931801089'
   },
   {
-    img: '/assets/img/shop.jpg',
+    img: '/assets/img/storeLviv.jpg',
     mall: 'Big Brother Mall',
     atrium: 'Atrium Watch',
     floor: '1st floor',
     phoneNumber: '0931801089'
   },
   {
-    img: '/assets/img/shop.jpg',
+    img: '/assets/img/storeLviv.jpg',
     mall: 'Wizard`s Doll Mall',
     atrium: 'Atrium Rest',
     floor: '1st floor',
     phoneNumber: '0931801089'
   },
   {
-    img: '/assets/img/shop.jpg',
+    img: '/assets/img/storeLviv.jpg',
     mall: 'Scottish Fold Mall',
     atrium: 'Atrium Africa',
     floor: '1st floor',
     phoneNumber: '0931801089'
   },
   {
-    img: '/assets/img/shop.jpg',
+    img: '/assets/img/storeLviv.jpg',
     mall: 'Brave Mall',
     atrium: 'Atrium Freedom',
     floor: '1st floor',
     phoneNumber: '0931801089'
   },
   {
-    img: '/assets/img/shop.jpg',
+    img: '/assets/img/storeLviv.jpg',
     mall: 'Champion Mall',
     atrium: 'Atrium Winner',
     floor: '1st floor',
     phoneNumber: '0931801089'
   },
   {
-    img: '/assets/img/shop.jpg',
+    img: '/assets/img/storeLviv.jpg',
     mall: 'Sunset Mall',
     atrium: 'Atrium Dreams',
     floor: '1st floor',
