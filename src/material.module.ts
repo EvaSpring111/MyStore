@@ -47,7 +47,8 @@ import {CdkMenuModule} from '@angular/cdk/menu';
 import {DialogModule} from '@angular/cdk/dialog';
 import { NotFoundComponent } from './not-found/not-found.component';
 
-import { ContactsComponent } from 'src/contacts/contacts.component';
+
+
 
 
 
@@ -103,7 +104,7 @@ import { ContactsComponent } from 'src/contacts/contacts.component';
   ],
   declarations: [
     NotFoundComponent,
-    ContactsComponent
+
   ]
 })
 export class MaterialExampleModule {}

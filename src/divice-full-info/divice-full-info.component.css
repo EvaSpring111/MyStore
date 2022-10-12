@@ -1,6 +1,13 @@
 #list_Of_devices{
   font-weight: 400;
 }
+h4, h5, p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: .8rem;
+  line-height: 1.5;
+  letter-spacing: 1px;
+}
 
 h4 {
   font-style: normal;

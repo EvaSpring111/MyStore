@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from 'src/home/home.component';
 import { DiviceFullInfoComponent } from 'src/divice-full-info/divice-full-info.component';
 import { CartComponent } from 'src/cart/cart.component';
+import { ContactsComponent } from 'src/contacts/contacts.component';
+import { FeedBackFormComponent } from 'src/feed-back-form/feed-back-form.component';
 import { BannerAdvertisementComponent } from 'src/banner-advertisement/banner-advertisement.component';
 
 import { StuffService } from 'src/services/stuff.service';
@@ -30,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 
+
 @NgModule({
    imports: [
     BrowserModule,
@@ -51,6 +54,8 @@ import { AppRoutingModule } from './app-routing.module';
     HomeComponent,
     DiviceFullInfoComponent,
     CartComponent,
+    ContactsComponent,
+    FeedBackFormComponent,
     BannerAdvertisementComponent,
     FilterPipe,
     SearchFilter,

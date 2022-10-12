@@ -26,6 +26,8 @@ export class StuffService {
     return this.http.get<DeviceDescription>(url);
   }
 
+
+
   private handleError(error: any) {
     console.log(error);
     return throwError(error);
