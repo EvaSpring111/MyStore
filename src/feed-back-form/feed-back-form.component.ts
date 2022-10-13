@@ -71,15 +71,14 @@ export class FeedBackFormComponent implements OnInit {
     sendFeedBack( feedback: FeedBack){
       console.warn('Your feedback has been submitted', this.feedbackForm.value);
 
-
-    this.httpService.postFeedBAckForm(feedback)
-    .subscribe({
-        next:(data: any) => {
-          this.receivedDate = data;
-        },
-          error: error => console.log(error)
-
-    });
+      this.httpService.postFeedBAckForm(feedback)
+      .subscribe({
+          next:(data: any) => {
+            this.receivedDate = data;
+          },
+            error: error => console.log(error)
+      });
+      this.feedbackForm.reset();
   }
 
 }
