@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {MatIconModule} from '@angular/material/icon';
 import { CartService  } from 'src/services/shopping-cart.service';
 
 import { FooterLinks } from 'src/model/FooterLinks.interface';

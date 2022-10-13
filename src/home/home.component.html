@@ -79,12 +79,12 @@
              <a
               class="px-2"
               id="hot_sales"
-              routerLink="/products/{{item.id}}"> {{item.name}}
+              routerLink="/products/{{item.id}}">{{item.name}}
              </a>
           </li>
       </ul>
     </ul>
-    <div class="col-sm-12 col-lg-9 text-dark text-center">
+    <div class="col-sm-12 col-lg-9 text-dark text-center mt-5">
       <app-banner-advertisement></app-banner-advertisement>
       <pagination-controls
         class="btn-group btn-outline-primary mt-5 my-pagination text-light"
@@ -105,12 +105,35 @@
          <div class="card-body">
           <div class="d-flex justify-content-between gap-4">
             <button
+              data-bs-toggle="modal"
+              data-bs-target="#Modal"
               mat-stroked-button color="primary"
               class="buttons_home"
               aria-label="buy this device"
               (click)="addToCart(item)">
                 <mat-icon>add_shopping_cart</mat-icon>
             </button>
+            <!-- Modal -->
+            <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h2 class="modal-title" id="ModalLabel">{{item.name}}</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <h3>Item {{item.name}} has been added to the cart!</h3>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Continue shopping</button>
+                    <!-- <button type="button" class="btn btn-primary"><a href="http://localhost:4200/cart"
+                      class="text-decoration-none"><i class="material-icons">shopping_cart</i>
+                      To cart</a>
+                    </button> -->
+                  </div>
+                </div>
+              </div>
+            </div>
               <a
                 class="text-decoration-none"
                 id="item_name"
@@ -164,7 +187,6 @@
        </div>
     </div>
   </div>
-
       </div>
       <pagination-controls
         class="btn-group btn-outline-primary mt-5 text-light my-pagination"
