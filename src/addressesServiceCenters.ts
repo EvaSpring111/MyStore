@@ -3,17 +3,17 @@ import { ServiceAddress } from "./model/ServiceAdrdess.interface";
 export const kyivService: ServiceAddress[] = [
     {
       img: '/assets/img/service.png',
-      address: '31 Glory to Ukraine Street',
+      address: '31 Glory St.',
       phoneNumber: '0931801089'
     },
     {
       img: '/assets/img/service.png',
-      address: '1 S.Bandery Avenue',
+      address: '1 S.Bandery Av.',
       phoneNumber: '0931801089'
     },
     {
       img: '/assets/img/service.png',
-      address: '99 Smokey Island Street',
+      address: '99 Island St.',
       phoneNumber: '0931801089'
     },
     {
@@ -23,27 +23,27 @@ export const kyivService: ServiceAddress[] = [
     },
     {
       img: '/assets/img/service.png',
-      address: '56 Morning Star Avenu',
+      address: '56  Star Av.',
       phoneNumber: '0931801089'
     },
     {
       img: '/assets/img/service.png',
-      address: '46 Happy Spring Street',
+      address: '46 Happy St.',
       phoneNumber: '0931801089'
     },
     {
       img: '/assets/img/service.png',
-      address: '88 Lucky Strike Lane',
+      address: '88 Lucky Lane',
       phoneNumber: '0931801089'
     },
     {
       img: '/assets/img/service.png',
-      address: '77 Private Drive Street',
+      address: '77 Drive St.',
       phoneNumber: '0931801089'
     },
     {
       img: '/assets/img/service.png',
-      address: '77 Hollywood Avenue',
+      address: '77 Hollywood Av.',
       phoneNumber: '0931801089'
     },
   ]
@@ -51,47 +51,47 @@ export const kyivService: ServiceAddress[] = [
 export const lvivService: ServiceAddress[] = [
     {
     img: '/assets/img/service.png',
-    address: '46 Happy Spring Street',
+    address: '46 Spring St.',
     phoneNumber: '0931801089'
   },
   {
     img: '/assets/img/service.png',
-    address: '46 Happy Spring Street',
+    address: '46 Spring St.',
     phoneNumber: '0931801089'
   },
   {
     img: '/assets/img/service.png',
-    address: '77 Hollywood Avenue',
+    address: '77 Hollywood Av.',
     phoneNumber: '0931801089'
   },
   {
     img: '/assets/img/service.png',
-    address: '46 Happy Spring Street',
+    address: '46 Happy St.',
     phoneNumber: '0931801089'
   },
   {
     img: '/assets/img/service.png',
-    address: '88 Lucky Strike Lane',
+    address: '88 Lucky Lane',
     phoneNumber: '0931801089'
   },
   {
     img: '/assets/img/service.png',
-    address: '46 Happy Spring Street',
+    address: '46 Happy St.',
     phoneNumber: '0931801089'
   },
   {
     img: '/assets/img/service.png',
-    address: '46 Happy Spring Street',
+    address: '46 Happy St.',
     phoneNumber: '0931801089'
   },
   {
     img: '/assets/img/service.png',
-    address: '46 Happy Spring Street',
+    address: '46 Happy St.',
     phoneNumber: '0931801089'
   },
   {
     img: '/assets/img/service.png',
-    address: '46 Happy Spring Street',
+    address: '46 Spring St.',
     phoneNumber: '0931801089'
   },
   ]
@@ -99,47 +99,47 @@ export const lvivService: ServiceAddress[] = [
   export const odessaService: ServiceAddress[] = [
     {
     img: '/assets/img/service.png',
-    address: '46 Happy Spring Street',
+    address: '46 Spring St.',
     phoneNumber: '0931801089'
   },
   {
     img: '/assets/img/service.png',
-    address: '46 Happy Spring Street',
+    address: '46 Happy St.',
     phoneNumber: '0931801089'
   },
   {
     img: '/assets/img/service.png',
-    address: '31 Glory to Ukraine Street',
+    address: '31 Glory St.',
     phoneNumber: '0931801089'
   },
   {
     img: '/assets/img/service.png',
-    address: '46 Happy Spring Street',
+    address: '46 Happy St.',
     phoneNumber: '0931801089'
   },
   {
     img: '/assets/img/service.png',
-    address: '46 Happy Spring Street',
+    address: '46 Spring St.',
     phoneNumber: '0931801089'
   },
   {
     img: '/assets/img/service.png',
-    address: '46 Happy Spring Street',
+    address: '46 Spring St.',
     phoneNumber: '0931801089'
   },
   {
     img: '/assets/img/service.png',
-    address: '46 Happy Spring Street',
+    address: '46 Happy St.',
     phoneNumber: '0931801089'
   },
   {
     img: '/assets/img/service.png',
-    address: '31 Glory to Ukraine Street',
+    address: '31 Glory St.',
     phoneNumber: '0931801089'
   },
   {
     img: '/assets/img/service.png',
-    address: '46 Happy Spring Street',
+    address: '46 Spring St.',
     phoneNumber: '0931801089'
   },
 

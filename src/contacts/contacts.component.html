@@ -5,89 +5,108 @@
       <div class="col-lg-9 mt-1">
           <mat-tab-group>
             <mat-tab><ng-template mat-tab-label><h3>Kyiv</h3></ng-template>
-               <div class="d-flex flex-row justify-content-center flex-wrap">
+              <div class="d-flex flex-row justify-content-center flex-wrap">
                 <div
-                  class="col-sm-12 col-md-6 col-lg-4 col-xl-4 text-dark"
+                  class="col-sm-6 col-md-6 col-lg-4 col-xl-4 text-dark"
                    *ngFor="let item of kyivShop; let i = index">
                     <div
-                        class="bg-transparent card my-2 d-flex flex-column align-items-center h-65 w-75 text-light">
-                     <img class="rounded-circle image-responsive w-50" src="{{item.img}}" alt="shop">
-                     {{ item.mall}} <br>
-                     {{ item.atrium}} <br>
-                     {{ item.floor}} <br>
-                    <a class="text-decoration-none pb-2" href="tel:+{{ item.phoneNumber}}">{{ item.phoneNumber}}</a>
+                        class="bg-transparent card my-2 d-flex flex-column align-items-center h-65 w-65 text-light">
+                      <img class="rounded-circle image-responsive w-50" src="{{item.img}}" alt="shop">
+                      <span>{{ item.mall}}</span>
+                      <span>{{ item.atrium}}</span>
+                      <span>{{ item.floor}}</span>
+                      <a class="text-decoration-none pb-2" href="tel:+{{ item.phoneNumber}}">{{ item.phoneNumber}}</a>
                      </div>
                 </div>
-               </div>
-              <div class="d-flex flex-row justify-content-around flex-wrap gap-4">
-                <div class="row col-sm-12 col-md-6 col-lg-4"
-                 *ngFor="let service of kyivService; let i = index">
-                  <div
-                      class="gap-2 bg-transparent card my-2 d-flex flex-column justify-content-between align-items-center w-75 h-65 text-light" style="width: 100%;">
-                      <img class="rounded-circle image-responsive w-50" src="{{service.img}}" alt="shop">
-                      {{service.address}} <br>
-                      <a class="text-decoration-none pb-2" href="tel:+{{ service.phoneNumber}}">{{ service.phoneNumber}}</a>
-                  </div>
+              </div>
+              <div class="d-flex flex-row justify-content-center flex-wrap">
+                <div
+                  class="col-sm-6 col-md-6 col-lg-4 col-xl-4 text-dark"
+                   *ngFor="let item of kyivService; let i = index">
+                    <div
+                        class="bg-transparent card my-2 d-flex flex-column align-items-center h-65 w-65 text-light">
+                      <img class="rounded-circle image-responsive w-50" src="{{item.img}}" alt="shop">
+                      <span>{{ item.address}}</span>
+                      <a class="text-decoration-none pb-2" href="tel:+{{ item.phoneNumber}}">{{ item.phoneNumber}}</a>
+                     </div>
                 </div>
               </div>
             </mat-tab>
             <mat-tab><ng-template mat-tab-label><h3>Lviv</h3></ng-template>
               <div class="d-flex flex-row justify-content-center flex-wrap">
                 <div
-                  class="col-sm-12 col-md-6 col-lg-4 col-xl-4 text-dark"
-                   *ngFor="let shop of lvivShop; let i = index">
+                  class="col-sm-6 col-md-6 col-lg-4 col-xl-4 text-dark"
+                   *ngFor="let item of lvivShop; let i = index">
                     <div
-                        class="bg-transparent card my-2 d-flex flex-column align-items-center  h-65 w-75 text-light">
-                     <img class="rounded-circle image-responsive w-50" src="{{shop.img}}" alt="shop">
-                     {{ shop.mall}} <br>
-                     {{ shop.atrium}} <br>
-                     {{ shop.floor}} <br>
-                    <a class="text-decoration-none pb-2" href="tel:+{{ shop.phoneNumber}}">{{ shop.phoneNumber}}</a>
+                        class="bg-transparent card my-2 d-flex flex-column align-items-center h-65 w-65 text-light">
+                      <img class="rounded-circle image-responsive w-50" src="{{item.img}}" alt="shop">
+                      <span>{{ item.mall}}</span>
+                      <span>{{ item.atrium}}</span>
+                      <span>{{ item.floor}}</span>
+                      <a class="text-decoration-none pb-2" href="tel:+{{ item.phoneNumber}}">{{ item.phoneNumber}}</a>
                      </div>
                 </div>
               </div>
-              <div class="d-flex flex-row justify-content-around flex-wrap gap-4">
-                <div class="row col-sm-12 col-md-6 col-lg-4"
-                 *ngFor="let service of lvivService; let i = index">
-                  <div
-                      class="gap-2 bg-transparent card my-2 d-flex flex-column justify-content-between align-items-center w-75 h-65 text-light" style="width: 100%;">
-                      <img class="rounded-circle image-responsive" src="{{service.img}}" alt="shop">
-                      {{service.address}} <br>
-                      <a class="text-decoration-none pb-2" href="tel:+{{ service.phoneNumber}}">{{ service.phoneNumber}}</a>
-                  </div>
+              <div class="d-flex flex-row justify-content-center flex-wrap">
+                <div
+                  class="col-sm-6 col-md-6 col-lg-4 col-xl-4 text-dark"
+                   *ngFor="let item of lvivService; let i = index">
+                    <div
+                        class="bg-transparent card my-2 d-flex flex-column align-items-center h-65 w-65 text-light">
+                      <img class="rounded-circle image-responsive w-50" src="{{item.img}}" alt="shop">
+                      <span>{{ item.address}}</span>
+                      <a class="text-decoration-none pb-2" href="tel:+{{ item.phoneNumber}}">{{ item.phoneNumber}}</a>
+                     </div>
                 </div>
               </div>
             </mat-tab>
-            <mat-tab><ng-template mat-tab-label><h3>Oddesa</h3> </ng-template>
+            <mat-tab><ng-template mat-tab-label><h3>Oddesa</h3></ng-template>
               <div class="d-flex flex-row justify-content-center flex-wrap">
                 <div
-                  class="col-sm-12 col-md-6 col-lg-4 col-xl-4 text-dark"
-                   *ngFor="let shop of odessaShop; let i = index">
+                  class="col-sm-6 col-md-6 col-lg-4 col-xl-4 text-dark"
+                   *ngFor="let item of odessaShop; let i = index">
                     <div
-                        class="bg-transparent card my-2 d-flex flex-column align-items-center  h-65 w-75  text-light">
-                     <img class="rounded-circle image-responsive w-50" src="{{shop.img}}" alt="shop">
-                     {{ shop.mall}} <br>
-                     {{ shop.atrium}} <br>
-                     {{ shop.floor}} <br>
-                    <a class="text-decoration-none pb-2" href="tel:+{{ shop.phoneNumber}}">{{ shop.phoneNumber}}</a>
+                        class="bg-transparent card my-2 d-flex flex-column align-items-center h-65 w-65 text-light">
+                      <img class="rounded-circle image-responsive w-50" src="{{item.img}}" alt="shop">
+                      <span>{{ item.mall}}</span>
+                      <span>{{ item.atrium}}</span>
+                      <span>{{ item.floor}}</span>
+                      <a class="text-decoration-none pb-2" href="tel:+{{ item.phoneNumber}}">{{ item.phoneNumber}}</a>
                      </div>
                 </div>
               </div>
-              <div class="d-flex flex-row justify-content-around flex-wrap gap-4">
-                <div class="row col-sm-12 col-md-6 col-lg-4"
-                 *ngFor="let service of odessaService; let i = index">
-                  <div
-                      class="gap-2 bg-transparent card my-2 d-flex flex-column justify-content-between align-items-center w-75 h-65 text-light" style="width: 100%;">
-                      <img class="rounded-circle image-responsive w-50" src="{{service.img}}" alt="shop">
-                      {{service.address}} <br>
-                      <a class="text-decoration-none pb-2" href="tel:+{{ service.phoneNumber}}">{{ service.phoneNumber}}</a>
-                  </div>
+              <div class="d-flex flex-row justify-content-center flex-wrap">
+                <div
+                  class="col-sm-6 col-md-6 col-lg-4 col-xl-4 text-dark"
+                   *ngFor="let item of odessaService; let i = index">
+                    <div
+                        class="bg-transparent card my-2 d-flex flex-column align-items-center h-65 w-65 text-light">
+                      <img class="rounded-circle image-responsive w-50" src="{{item.img}}" alt="shop">
+                      <span>{{ item.address}}</span>
+                      <a class="text-decoration-none pb-2" href="tel:+{{ item.phoneNumber}}">{{ item.phoneNumber}}</a>
+                     </div>
                 </div>
-              </div></mat-tab>
+              </div>
+            </mat-tab>
           </mat-tab-group>
       </div>
       <div class="col-lg-3 my-5">
         <app-feed-back-form></app-feed-back-form>
+        <h1 class="mt-5">Piece of advice about exploitation:</h1>
+        <ul class="list-unstyled">
+          <li>Lorem ipsum dolor sit.</li>
+          <li>Lorem ipsum dolor sit.</li>
+          <li>Lorem ipsum dolor sit.</li>
+          <li>Lorem ipsum dolor sit.</li>
+          <li>Lorem ipsum dolor sit.</li>
+          <li>Lorem ipsum dolor sit.</li>
+          <li>Lorem ipsum dolor sit.</li>
+          <li>Lorem ipsum dolor sit.</li>
+          <li>Lorem ipsum dolor sit.</li>
+          <li>Lorem ipsum dolor sit.</li>
+          <li>Lorem ipsum dolor sit.</li>
+          <li>Lorem ipsum dolor sit.</li>
+        </ul>
       </div>
     </div>
   </div>

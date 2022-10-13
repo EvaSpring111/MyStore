@@ -59,10 +59,10 @@ export class FeedBackFormComponent implements OnInit {
       return this.email.hasError('email') ? 'Not a valid email' : '';
     }
 
-    feedBackText = new FormControl('', [Validators.required]);
+    feedBackText = new FormControl('', [Validators.required, Validators.maxLength(256), Validators.min(5)]);
 
     getFeedBackErrorMessage() {
-      if (this.feedBackText.hasError('required')) {
+      if (this.feedBackText.hasError('required') || this.feedBackText.hasError('minLength') || this.feedBackText.hasError('maxLength')) {
         return 'Please,  enter your feedback';
       }
       return this.feedBackText.hasError('required') ? 'Empty space' : '';
