@@ -13,5 +13,6 @@ export interface Stuff {
 }
 
 export interface CartProduct extends Stuff {
+total: string|number;
   qty:number;
 }

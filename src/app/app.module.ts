@@ -24,6 +24,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MaterialExampleModule } from '../material.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -48,7 +49,8 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTooltipModule,
-    MatTabsModule
+    MatTabsModule,
+    MatFormFieldModule
 
   ],
   declarations: [

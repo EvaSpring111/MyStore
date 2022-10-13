@@ -48,12 +48,12 @@
          </tbody>
        </table>
    </div>
-   <h4>Hurry Up!</h4>
-   <p>Free delivery only till {{ freeShipping | date: 'dd.MM.yyyy' }}</p>
+   <h4 class="text-center">Hurry Up!</h4>
+   <p class="text-center">Free delivery only till {{ freeShipping | date: 'dd.MM.yyyy' }}</p>
    <h2 class="text-center">Customer contact details</h2>
    <form
     #form="ngForm"
-     ngNativeValidate
+    ngNativeValidate
     [formGroup]="checkoutForm"
     (ngSubmit)="onSubmit(form.value)"
     class="mt-5 text-center text-ligth">
@@ -74,6 +74,22 @@
          <mat-error *ngIf="userName.invalid">{{getNameErrorMessage()}}</mat-error>
        </mat-form-field>
      </div>
+     <div class="checkout">
+      <mat-form-field appearance="fill">
+        <mat-label>City</mat-label>
+        <mat-select
+          id="selectCity"
+          formControlName="selectCity"
+          required
+          for="selectCity">
+            <mat-option value="Kyiv">Kyiv</mat-option>
+            <mat-option value="Lviv">Lviv</mat-option>
+            <mat-option value="Odessa">Odessa</mat-option>
+        </mat-select>
+        <mat-hint *ngIf="!selectCity.invalid" align="end">Choice city</mat-hint>
+        <mat-error *ngIf="selectCity.invalid">{{getCityErrorMessage()}}</mat-error>
+      </mat-form-field>
+     </div>
      <div class="checkout" >
        <mat-form-field appearance="fill">
          <mat-label>Address</mat-label>
@@ -87,6 +103,18 @@
             for="address">
          <mat-error *ngIf="address.invalid">{{getAddressErrorMessage()}}</mat-error>
        </mat-form-field>
+     </div>
+     <div class="checkout">
+       <mat-label>Delivery by:</mat-label>
+          <mat-radio-group
+            class="d-flex flex-row justify-content-center gap-2"
+            id="deliveryBy"
+            formControlName="deliveryBy"
+            required
+            for="deliveryBy">
+              <mat-radio-button value="Dron" class="py-2 mr-2">Dron</mat-radio-button>
+              <mat-radio-button value="Courier" class="py-2 pl-2">Courier </mat-radio-button>
+          </mat-radio-group>
      </div>
      <div class="checkout">
        <mat-form-field appearance="fill">
@@ -109,14 +137,25 @@
            id="mobileNumber"
            formControlName="mobileNumber"
            matInput
+           minlength="10"
            type="tel"
            placeholder="(093)180-10-89"
            required
-           pattern="[- +()0-9]+"
            for="mobileNumber" >
         <mat-error *ngIf="mobileNumber.invalid">{{getMobileErrorMessage()}}</mat-error>
       </mat-form-field>
-
+     </div>
+     <div class="checkout">
+        <mat-form-field appearance="fill">
+          <mat-label>Enter a date range</mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+            <input formControlName="dateOfDeliveryFrom"  matStartDate placeholder="From date">
+            <input formControlName="dateOfDeliveryTo" matEndDate placeholder="To date">
+          </mat-date-range-input>
+          <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
      </div>
      <button
         id="submitBtn"

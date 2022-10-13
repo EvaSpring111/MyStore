@@ -1,12 +1,12 @@
 import { Component, OnInit, Input} from '@angular/core';
 
-import { FormBuilder, FormGroupDirective } from '@angular/forms';
-import { FormControl, Validators, FormGroup } from '@angular/forms';
-import { Form } from 'src/app/form';
+import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { CartProducts, Form } from 'src/app/form';
 
 import { HttpService } from 'src/services/sendForm.service';
 import { CartService } from 'src/services/shopping-cart.service';
 import { LocalService } from 'src/services/local.service';
+import { FloatLabelType } from '@angular/material/form-field';
 
 
 @Component({
@@ -27,12 +27,16 @@ export class CartComponent implements OnInit {
 
   checkoutForm = this.formBuilder.group({
     userName: '',
+    selectCity: '',
     address: '',
+    deliveryBy: '',
     email: '',
-    mobileNumber: '',
+    mobileNumber: 0,
+    dateOfDeliveryFrom: '',
+    dateOfDeliveryTo: ''
   });
 
-  form: Form = new Form("", "", "",  0)
+  form: Form = new Form("", "", "", "", "",  0, '', '');
 
   receivedDate: Form | undefined;
 
@@ -54,7 +58,7 @@ export class CartComponent implements OnInit {
     this.localStore.saveData('id', catrStuff);
     this.localStore.saveData('id$', priceStuff);
     console.log('Cart has: ', JSON.parse(this.localStore.getData('id')));
-    this.prod =  JSON.parse(this.localStore.getData('id'));
+    this.prod = JSON.parse(this.localStore.getData('id'));
 
     console.log('Cart has: ', JSON.parse(this.localStore.getData('id$')));
     this.grandtal = JSON.parse(this.localStore.getData('id$'));
@@ -79,6 +83,14 @@ export class CartComponent implements OnInit {
     return this.userName.hasError('userName') ? 'Not a valid name' : '';
   }
 
+  selectCity = new FormControl('', [Validators.required]);
+
+  getCityErrorMessage(){
+    if(this.selectCity.hasError('required')){
+      return 'Please, choice your city'
+    }
+    return `${this.selectCity}`
+  }
 
   address = new FormControl('', [Validators.required],);
 
@@ -90,6 +102,8 @@ export class CartComponent implements OnInit {
     return this.address.hasError('address') ? 'Not a valid address' : '';
   }
 
+  deliveryBy = new FormControl('', [Validators.required])
+
   email = new FormControl('', [Validators.required, Validators.email]);
 
   getMailErrorMessage() {
@@ -99,7 +113,7 @@ export class CartComponent implements OnInit {
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
-  mobileNumber = new FormControl('', [Validators.required,  Validators.pattern('[- +()0-9]+')])
+  mobileNumber = new FormControl('', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')])
 
   getMobileErrorMessage() {
     if (this.mobileNumber.hasError('required') || this.mobileNumber.hasError('pattern')){
@@ -109,6 +123,9 @@ export class CartComponent implements OnInit {
     return this.mobileNumber.hasError('mobileNumber') ? 'Not a valid number' : '';
   }
 
+  dateOfDeliveryFrom = new FormControl('', [Validators.required]);
+  dateOfDeliveryTo = new FormControl('', [Validators.required]);
+
 
   onSubmit(form: Form) {
     // if ( this.userName.hasError('required') ){
@@ -117,20 +134,21 @@ export class CartComponent implements OnInit {
     // }
     console.warn('Your order has been submitted', this.checkoutForm.value);
 
-    this.checkoutForm.reset();
-    this.prod.length = 0;
     this.httpService.postData(form)
     .subscribe({
         next:(data: any) => {
-          this.receivedDate = data;},
+          this.receivedDate = data;
+        },
           error: error => console.log(error)
 
     });
+
+    this.checkoutForm.reset();
+    this.prod.length = 0;
+    this.grandtal = 0;
   }
 
   date = new Date();
   freeShipping = this.date.setDate(this.date.getDate() + 3);
-
-
 
 }

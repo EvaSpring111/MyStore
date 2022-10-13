@@ -85,6 +85,10 @@ mat-label {
   width: fit-content;
 }
 
+.example-container .mat-radio-button {
+  margin: 0 12px;
+}
+
 button.big_btns{
   width: max-content;
 }
