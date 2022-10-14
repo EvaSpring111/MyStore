@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
     ) { }
 
   searchvalue: string = "";
-  minPrice: number = 0;
+  minPrice: number = 0 ;
   maxPrice: number = 0;
 
   length: number | undefined;

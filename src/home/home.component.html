@@ -10,7 +10,7 @@
         <input id="filterSearch"
         [(ngModel)]="searchvalue"
         class="form-control col-1 col-sm-6 "
-        placeholder="Enter device name to search.."/>
+        placeholder="I search...."/>
       </div>
       <div class="col">
           <li>
@@ -30,11 +30,12 @@
                   id="filrtNavbar"
                   aria-labelledby="filrtNavbar">
                   <div class="offcanvas-header">
-                    <h3 class="offcanvas-title text-dark" id="filter">Filters</h3>
+                    <h2 class="offcanvas-title text-dark" id="filter">Filters</h2>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                   </div>
                   <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1">
+                      <h4 class="text-dark">Filter by type</h4>
                       <li class="nav-item py-1">
                         <button mat-raised-button color="primary" class="filterBtn ">
                           <a (click)="filterType('')" >
@@ -57,15 +58,22 @@
                         </button>
                       </li>
                       <li class="nav-item py-1">
+                        <h3 class="text-dark">Filter by price</h3>
                         <div class="d-flex align-items-center col">
-                          <input id="filterPrice"
-                          [(ngModel)]="minPrice"
-                          class="form-control col-1 col-sm-6 "
-                          placeholder="min"/>
-                          <input id="filterPrice"
-                          [(ngModel)]="maxPrice"
-                          class="form-control col-1 col-sm-6 "
-                          placeholder="min"/>
+                          <div class="d-flex flex-column">
+                            <input id="filterPrice"
+                            [(ngModel)]="minPrice"
+                            class="form-control col-1 col-sm-6 "
+                            placeholder="minimal price"/>
+                            <h6 class="text-dark">minimal price</h6>
+                          </div>
+                          <div class="d-flex flex-column">
+                            <input id="filterPrice"
+                            [(ngModel)]="maxPrice"
+                            class="form-control col-1 col-sm-6 "
+                            placeholder="maximal price"/>
+                            <h6 class="text-dark">maximal price</h6>
+                          </div>
                         </div>
                       </li>
                     </ul>
