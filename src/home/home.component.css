@@ -50,6 +50,16 @@ a, span {
   height: min-content;
 }
 
+#filrtNavbar:hover {
+  transform: translateY(-0.25rem);
+}
+
+input:hover{
+  box-shadow: 0px 3px 15px aqua;
+  cursor: pointer;
+}
+
+
 .buttons_home:hover,
 .buttons_home:focus,
  img:hover,
