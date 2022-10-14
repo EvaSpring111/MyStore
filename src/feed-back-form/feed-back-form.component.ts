@@ -79,6 +79,7 @@ export class FeedBackFormComponent implements OnInit {
             error: error => console.log(error)
       });
       this.feedbackForm.reset();
+      window.AnimationTimeline
   }
 
 }
