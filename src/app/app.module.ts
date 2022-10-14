@@ -9,6 +9,7 @@ import { CartComponent } from 'src/cart/cart.component';
 import { ContactsComponent } from 'src/contacts/contacts.component';
 import { FeedBackFormComponent } from 'src/feed-back-form/feed-back-form.component';
 import { BannerAdvertisementComponent } from 'src/banner-advertisement/banner-advertisement.component';
+import { ModalComponent } from 'src/modal/modal.component';
 
 import { StuffService } from 'src/services/stuff.service';
 import { CartService  } from 'src/services/shopping-cart.service';
@@ -30,6 +31,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTabsModule } from '@angular/material/tabs';
 
+import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -51,7 +53,8 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserAnimationsModule,
     MatTooltipModule,
     MatTabsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MdbModalModule
 
   ],
   declarations: [
@@ -62,6 +65,7 @@ import { AppRoutingModule } from './app-routing.module';
     ContactsComponent,
     FeedBackFormComponent,
     BannerAdvertisementComponent,
+    ModalComponent,
     FilterPipe,
     SearchFilter,
     TypeofPipe,

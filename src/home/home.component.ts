@@ -7,7 +7,6 @@ import { Stuff } from 'src/model/Stuff.interface';
 
 import { StuffService } from 'src/services/stuff.service';
 import { CartService } from 'src/services/shopping-cart.service';
-import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-home',
@@ -16,10 +15,7 @@ import { AppComponent } from 'src/app/app.component';
   providers: [ SearchFilter]
 })
 
-
-
 export class HomeComponent implements OnInit {
-
 
   stuff: Stuff[] = [];
   public filterCategory : any;
@@ -28,7 +24,6 @@ export class HomeComponent implements OnInit {
   public productList : any ;
   productsPerPage: number = 4;
   public selectedPage: number = 1;
-
 
   constructor(
     private stuffService: StuffService,
@@ -68,9 +63,8 @@ export class HomeComponent implements OnInit {
         });
       });
     });
+
   }
-
-
 
   addToCart(item: Stuff): void{
     this.cartService.addToCart(item);

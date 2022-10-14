@@ -146,8 +146,7 @@
                   <button
                   *ngIf="oneDevice.id === item.id"
                     type="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#Modal"
+                    (click)="openModal()"
                     mat-raised-button color="primary"
                     class="buttons_home mb-3"
                     aria-label="buy this device"
@@ -156,7 +155,7 @@
                     Add to cart
                   </button>
                    <!-- Modal -->
-            <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+            <!-- <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-md">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -167,7 +166,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
                 </div>
                 <div
                   *ngFor="let oneDevice of stuff"

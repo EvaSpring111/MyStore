@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap} from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Stuff } from 'src/model/Stuff.interface';
@@ -7,8 +7,8 @@ import { StuffService } from 'src/services/stuff.service';
 import { CartService } from 'src/services/shopping-cart.service';
 import { DeviceDescription } from 'src/model/DeviceDescription.interface';
 
-import { TypeofPipe  } from 'src/filters/typeof.pipe';
-
+import { ModalComponent  } from 'src/modal/modal.component';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 
 @Component({
   selector: 'app-divice-full-info',
@@ -26,12 +26,14 @@ export class DiviceFullInfoComponent implements OnInit {
 
    date = new Date();
    propositionDate = this.date.setDate(this.date.getDate() + 7);
+   modalRef: MdbModalRef<ModalComponent> | null= null;
 
   constructor(
     private stuffService: StuffService,
     private cartService: CartService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private modalService: MdbModalService
     ) {}
 
     ngOnInit(): void {
@@ -75,6 +77,11 @@ export class DiviceFullInfoComponent implements OnInit {
      return typeof val;
     }
 
+    openModal() {
+      this.modalRef = this.modalService.open(ModalComponent, {
+        data: { title: this.item?.name}
+      })
+    }
   }
 
 
