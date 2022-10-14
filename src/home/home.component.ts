@@ -2,22 +2,28 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { SearchFilter } from 'src/filters/searchFilter.pipe';
+import { PricePipe } from 'src/filters/price.pipe';
 
 import { Stuff } from 'src/model/Stuff.interface';
+import { DeviceDescription } from 'src/model/DeviceDescription.interface';
 
 import { StuffService } from 'src/services/stuff.service';
 import { CartService } from 'src/services/shopping-cart.service';
+
+import { ModalComponent  } from 'src/modal/modal.component';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers: [ SearchFilter]
+  providers: [ SearchFilter, PricePipe]
 })
 
 export class HomeComponent implements OnInit {
 
   stuff: Stuff[] = [];
+  device: DeviceDescription | undefined;
   public filterCategory : any;
   public filterByPrice: any;
 
@@ -25,14 +31,20 @@ export class HomeComponent implements OnInit {
   productsPerPage: number = 4;
   public selectedPage: number = 1;
 
+  modalRef: MdbModalRef<ModalComponent> | null= null;
+
   constructor(
     private stuffService: StuffService,
     private route: ActivatedRoute,
     private cartService: CartService,
     public searchFilter: SearchFilter,
+    public priceFilter: PricePipe,
+    private modalService: MdbModalService
     ) { }
 
   searchvalue: string = "";
+  minPrice: number = 0;
+  maxPrice: number = 0;
 
   length: number | undefined;
   totalLength: any;
@@ -48,8 +60,6 @@ export class HomeComponent implements OnInit {
       this.totalLength = data.length;
       this.productList = data;
       this.filterCategory = data;
-      this.filterByPrice = data;
-
       this.productList.forEach((a: any) => {
         if(a.type === "phone"){
           a.type = "phone"
@@ -63,8 +73,16 @@ export class HomeComponent implements OnInit {
         });
       });
     });
-
   }
+
+  getDevice(): void {
+    let id = this.route.snapshot.paramMap.get("id");
+    let dataSource =  this.stuffService.getDevice(id)
+    .subscribe((data: DeviceDescription) => {
+      this.device = data;
+      return dataSource
+  })
+}
 
   addToCart(item: Stuff): void{
     this.cartService.addToCart(item);
@@ -78,7 +96,13 @@ export class HomeComponent implements OnInit {
       }
     })
   }
+
+  openModal() {
+    this.modalRef = this.modalService.open(ModalComponent, {
+      data: { title: this.device?.name }
+    })
   }
+}
 
 
 

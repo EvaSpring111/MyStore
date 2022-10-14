@@ -19,6 +19,7 @@ import { HttpService } from 'src/services/sendForm.service';
 import { FilterPipe } from 'src/filters/filter.pipe';
 import { SearchFilter } from 'src/filters/searchFilter.pipe';
 import { TypeofPipe } from 'src/filters/typeof.pipe';
+import { PricePipe } from 'src/filters/price.pipe';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -35,8 +36,6 @@ import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-
-
 
 @NgModule({
    imports: [
@@ -69,6 +68,7 @@ import { AppRoutingModule } from './app-routing.module';
     FilterPipe,
     SearchFilter,
     TypeofPipe,
+    PricePipe
   ],
   providers: [
     StuffService,

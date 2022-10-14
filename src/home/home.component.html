@@ -57,7 +57,16 @@
                         </button>
                       </li>
                       <li class="nav-item py-1">
-
+                        <div class="d-flex align-items-center col">
+                          <input id="filterPrice"
+                          [(ngModel)]="minPrice"
+                          class="form-control col-1 col-sm-6 "
+                          placeholder="min"/>
+                          <input id="filterPrice"
+                          [(ngModel)]="maxPrice"
+                          class="form-control col-1 col-sm-6 "
+                          placeholder="min"/>
+                        </div>
                       </li>
                     </ul>
                   </div>
@@ -93,7 +102,7 @@
       <div class="px-3 d-flex flex-row justify-content-evenly flex-wrap gap-4">
         <div
           class="row col-sm-11 col-md-6 col-lg-6 col-xl-6"
-          *ngFor="let item of filterCategory | searchFilter:searchvalue | paginate: {
+          *ngFor="let item of filterCategory | searchFilter:searchvalue | price:minPrice:maxPrice |  paginate: {
             itemsPerPage: 6,
             currentPage: page,
             totalItems: totalLength
@@ -105,35 +114,13 @@
          <div class="card-body">
           <div class="d-flex justify-content-between gap-4">
             <button
-              data-bs-toggle="modal"
-              data-bs-target="#Modal"
               mat-stroked-button color="primary"
               class="buttons_home"
               aria-label="buy this device"
+              (click)="openModal()"
               (click)="addToCart(item)">
                 <mat-icon>add_shopping_cart</mat-icon>
             </button>
-            <!-- Modal -->
-            <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h2 class="modal-title" id="ModalLabel">{{item.name}}</h2>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <h3>Item {{item.name}} has been added to the cart!</h3>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Continue shopping</button>
-                    <!-- <button type="button" class="btn btn-primary"><a href="http://localhost:4200/cart"
-                      class="text-decoration-none"><i class="material-icons">shopping_cart</i>
-                      To cart</a>
-                    </button> -->
-                  </div>
-                </div>
-              </div>
-            </div>
               <a
                 class="text-decoration-none"
                 id="item_name"
