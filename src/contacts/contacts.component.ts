@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceAddress } from 'src/model/ServiceAdrdess.interface';
-import { ShopMall } from 'src/model/ShopMall.interface';
+import { ServiceAddress } from 'src/model/ServiceAdrdess.model';
+import { ShopMall } from 'src/model/ShopMall.model';
 import { KYIVSHOP } from 'src/shopsAddresses';
 import { LVIVSHOP } from 'src/shopsAddresses';
 import { ODESSASHOP } from 'src/shopsAddresses';

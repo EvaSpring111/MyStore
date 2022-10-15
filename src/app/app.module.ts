@@ -16,10 +16,10 @@ import { CartService  } from 'src/services/shopping-cart.service';
 import { LocalService } from 'src/services/local.service';
 import { HttpService } from 'src/services/sendForm.service';
 
-import { FilterPipe } from 'src/filters/filter.pipe';
-import { SearchFilter } from 'src/filters/searchFilter.pipe';
-import { TypeofPipe } from 'src/filters/typeof.pipe';
-import { PricePipe } from 'src/filters/price.pipe';
+import { FilterPipe } from 'src/pipes/filter.pipe';
+import { SearchFilter } from 'src/pipes/searchFilter.pipe';
+import { TypeofPipe } from 'src/pipes/typeof.pipe';
+import { PricePipe } from 'src/pipes/price.pipe';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';

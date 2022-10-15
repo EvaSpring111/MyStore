@@ -1,4 +1,4 @@
-import { ServiceAddress } from "./model/ServiceAdrdess.interface";
+import { ServiceAddress } from "./model/ServiceAdrdess.model";
 
 export const kyivService: ServiceAddress[] = [
     {

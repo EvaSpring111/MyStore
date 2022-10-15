@@ -1,4 +1,4 @@
-import { Stuff } from 'src/model/Stuff.interface';
+import { Stuff } from 'src/model/Stuff.model';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from "rxjs";
 

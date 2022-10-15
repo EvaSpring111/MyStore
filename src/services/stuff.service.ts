@@ -4,8 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import * as rxjs from 'rxjs';
-import { Stuff } from 'src/model/Stuff.interface';
-import { DeviceDescription } from 'src/model/DeviceDescription.interface';
+import { Stuff } from 'src/model/Stuff.model';
+import { DeviceDescription } from 'src/model/DeviceDescription.model';
 
 @Injectable({ providedIn: 'root' })
 

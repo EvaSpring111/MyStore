@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { SearchFilter } from 'src/filters/searchFilter.pipe';
-import { PricePipe } from 'src/filters/price.pipe';
+import { SearchFilter } from 'src/pipes/searchFilter.pipe';
+import { PricePipe } from 'src/pipes/price.pipe';
 
-import { Stuff } from 'src/model/Stuff.interface';
-import { DeviceDescription } from 'src/model/DeviceDescription.interface';
+import { Stuff } from 'src/model/Stuff.model';
+import { DeviceDescription } from 'src/model/DeviceDescription.model';
 
 import { StuffService } from 'src/services/stuff.service';
 import { CartService } from 'src/services/shopping-cart.service';
