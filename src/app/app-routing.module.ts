@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from 'src/home/home.component';
-import { DiviceFullInfoComponent } from 'src/divice-full-info/divice-full-info.component';
-import { CartComponent } from 'src/cart/cart.component';
-import { NotFoundComponent } from 'src/not-found/not-found.component';
-import { ContactsComponent } from 'src/contacts/contacts.component';
+import { HomeComponent } from 'src/app/home/home.component';
+import { DiviceFullInfoComponent } from 'src/app/divice-full-info/divice-full-info.component';
+import { CartComponent } from 'src/app/cart/cart.component';
+import { NotFoundComponent } from 'src/app/not-found/not-found.component';
+import { ContactsComponent } from 'src/app/contacts/contacts.component';
 
 const routes: Routes = [
   { path: 'products/:id', component: DiviceFullInfoComponent },

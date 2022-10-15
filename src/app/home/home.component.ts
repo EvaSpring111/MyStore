@@ -1,16 +1,16 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { SearchFilter } from 'src/pipes/searchFilter.pipe';
-import { PricePipe } from 'src/pipes/price.pipe';
+import { SearchFilter } from 'src/app/pipes/searchFilter.pipe';
+import { PricePipe } from 'src/app/pipes/price.pipe';
 
-import { Stuff } from 'src/model/Stuff.model';
-import { DeviceDescription } from 'src/model/DeviceDescription.model';
+import { Stuff } from 'src/app/model/Stuff.model';
+import { DeviceDescription } from 'src/app/model/DeviceDescription.model';
 
-import { StuffService } from 'src/services/stuff.service';
-import { CartService } from 'src/services/shopping-cart.service';
+import { StuffService } from 'src/app/services/stuff.service';
+import { CartService } from 'src/app/services/shopping-cart.service';
 
-import { ModalComponent  } from 'src/modal/modal.component';
+import { ModalComponent  } from 'src/app/modal/modal.component';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 
 @Component({

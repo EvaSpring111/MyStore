@@ -3,23 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from 'src/home/home.component';
-import { DiviceFullInfoComponent } from 'src/divice-full-info/divice-full-info.component';
-import { CartComponent } from 'src/cart/cart.component';
-import { ContactsComponent } from 'src/contacts/contacts.component';
-import { FeedBackFormComponent } from 'src/feed-back-form/feed-back-form.component';
-import { BannerAdvertisementComponent } from 'src/banner-advertisement/banner-advertisement.component';
-import { ModalComponent } from 'src/modal/modal.component';
+import { HomeComponent } from 'src/app/home/home.component';
+import { DiviceFullInfoComponent } from 'src/app/divice-full-info/divice-full-info.component';
+import { CartComponent } from 'src/app/cart/cart.component';
+import { ContactsComponent } from 'src/app/contacts/contacts.component';
+import { FeedBackFormComponent } from 'src/app/feed-back-form/feed-back-form.component';
+import { BannerAdvertisementComponent } from 'src/app/banner-advertisement/banner-advertisement.component';
+import { ModalComponent } from 'src/app/modal/modal.component';
 
-import { StuffService } from 'src/services/stuff.service';
-import { CartService  } from 'src/services/shopping-cart.service';
-import { LocalService } from 'src/services/local.service';
-import { HttpService } from 'src/services/sendForm.service';
+import { StuffService } from 'src/app/services/stuff.service';
+import { CartService  } from 'src/app/services/shopping-cart.service';
+import { LocalService } from 'src/app/services/local.service';
+import { HttpService } from 'src/app/services/sendForm.service';
 
-import { FilterPipe } from 'src/pipes/filter.pipe';
-import { SearchFilter } from 'src/pipes/searchFilter.pipe';
-import { TypeofPipe } from 'src/pipes/typeof.pipe';
-import { PricePipe } from 'src/pipes/price.pipe';
+import { FilterPipe } from 'src/app/pipes/filter.pipe';
+import { SearchFilter } from 'src/app/pipes/searchFilter.pipe';
+import { TypeofPipe } from 'src/app/pipes/typeof.pipe';
+import { PricePipe } from 'src/app/pipes/price.pipe';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';

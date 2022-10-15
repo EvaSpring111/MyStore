@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FeedBack } from 'src/model/FeedBack.model';
+import { FeedBack } from 'src/app/model/FeedBack.model';
 import { FormControl, Validators, FormBuilder} from '@angular/forms';
 
-import { HttpService } from 'src/services/sendForm.service';
+import { HttpService } from 'src/app/services/sendForm.service';
 
 @Component({
   selector: 'app-feed-back-form',

@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http';
 import { Observable, throwError, of } from 'rxjs';
 
-import { ShopMall } from 'src/model/ShopMall.model';
-import { ServiceAddress } from 'src/model/ServiceAdrdess.model';
+import { ShopMall } from 'src/app/model/ShopMall.model';
+import { ServiceAddress } from 'src/app/model/ServiceAdrdess.model';
 
 import { KYIVSHOP } from 'src/shopsAddresses';
 import { LVIVSHOP } from 'src/shopsAddresses';
@@ -18,7 +17,7 @@ import { odessaService } from 'src/addressesServiceCenters';
 })
 export class ContactsService {
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
   getShopKyiv(): Observable<ShopMall[]> {
     return of(KYIVSHOP)
@@ -39,4 +38,10 @@ export class ContactsService {
   getServiceOdessa(): Observable<ServiceAddress[]> {
     return of(odessaService)
   }
+
+  // getService(id: number): Observable<ServiceAddress> {
+  //   // TODO: send the message _after_ fetching the hero
+
+  //   return of(HEROES.find(hero => hero.id === id));
+  // }
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService  } from 'src/services/shopping-cart.service';
+import { CartService  } from 'src/app/services/shopping-cart.service';
 
-import { FooterLinks } from 'src/model/FooterLinks.model';
-import { HeaderNav } from 'src/model/HeaderNav.model';
+import { FooterLinks } from 'src/app/model/FooterLinks.model';
+import { HeaderNav } from 'src/app/model/HeaderNav.model';
 
 
 @Component({

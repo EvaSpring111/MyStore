@@ -1,11 +1,11 @@
 import { Component, OnInit, Input} from '@angular/core';
 
 import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
-import { CartProducts, Form } from 'src/app/form';
+import { Form } from '../model/Form.model';
 
-import { HttpService } from 'src/services/sendForm.service';
-import { CartService } from 'src/services/shopping-cart.service';
-import { LocalService } from 'src/services/local.service';
+import { HttpService } from 'src/app/services/sendForm.service';
+import { CartService } from 'src/app/services/shopping-cart.service';
+import { LocalService } from 'src/app/services/local.service';
 import { FloatLabelType } from '@angular/material/form-field';
 
 

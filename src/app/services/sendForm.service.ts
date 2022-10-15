@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Form } from 'src/model/Form.model';
-import { FeedBack } from 'src/model/FeedBack.model';
+import { Form } from 'src/app/model/Form.model';
+import { FeedBack } from 'src/app/model/FeedBack.model';
 
 
 @Injectable()

@@ -45,7 +45,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {CdkMenuModule} from '@angular/cdk/menu';
 import {DialogModule} from '@angular/cdk/dialog';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { NotFoundComponent } from 'src/app/not-found/not-found.component';
 
 @NgModule({
   exports: [

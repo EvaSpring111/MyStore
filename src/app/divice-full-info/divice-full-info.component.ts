@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Stuff } from 'src/model/Stuff.model';
-import { StuffService } from 'src/services/stuff.service';
-import { CartService } from 'src/services/shopping-cart.service';
-import { DeviceDescription } from 'src/model/DeviceDescription.model';
+import { Stuff } from 'src/app/model/Stuff.model';
+import { StuffService } from 'src/app/services/stuff.service';
+import { CartService } from 'src/app/services/shopping-cart.service';
+import { DeviceDescription } from 'src/app/model/DeviceDescription.model';
 
-import { ModalComponent  } from 'src/modal/modal.component';
+import { ModalComponent  } from 'src/app/modal/modal.component';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 
 @Component({

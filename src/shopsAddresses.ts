@@ -1,4 +1,4 @@
-import { ShopMall } from "./model/ShopMall.model"
+import { ShopMall } from "src/app/model/ShopMall.model"
 
 export const KYIVSHOP: ShopMall[]  = [
   {
@@ -6,7 +6,7 @@ export const KYIVSHOP: ShopMall[]  = [
     mall: 'GoogleMall',
     atrium: 'AtriumUSA',
     floor: '1st floor',
-    phoneNumber: '90931801089'
+    phoneNumber: '0931801089'
   },
   {
     img: '/assets/img/shop.jpg',
