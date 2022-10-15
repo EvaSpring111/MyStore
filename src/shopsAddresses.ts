@@ -1,4 +1,4 @@
-import { ShopMall } from "./model/ShopMall.interface"
+import { ShopMall } from "./model/ShopMall.model"
 
 export const KYIVSHOP: ShopMall[]  = [
   {

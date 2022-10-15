@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError, of } from 'rxjs';
 
-import { ShopMall } from 'src/model/ShopMall.interface';
-import { ServiceAddress } from 'src/model/ServiceAdrdess.interface';
+import { ShopMall } from 'src/model/ShopMall.model';
+import { ServiceAddress } from 'src/model/ServiceAdrdess.model';
 
 import { KYIVSHOP } from 'src/shopsAddresses';
 import { LVIVSHOP } from 'src/shopsAddresses';

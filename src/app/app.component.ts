@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService  } from 'src/services/shopping-cart.service';
 
-import { FooterLinks } from 'src/model/FooterLinks.interface';
-import { HeaderNav } from 'src/model/HeaderNav.interface';
+import { FooterLinks } from 'src/model/FooterLinks.model';
+import { HeaderNav } from 'src/model/HeaderNav.model';
 
 
 @Component({
@@ -14,26 +14,10 @@ import { HeaderNav } from 'src/model/HeaderNav.interface';
 export class AppComponent implements OnInit {
   title = 'MyStore';
 
-
   public totalItem : number = 0;
-  public searchTerm !: string;
-  searchvalue: any;
-  constructor(private cartService : CartService) { }
-
-  ngOnInit(): void {
-    this.cartService.getProducts()
-    .subscribe(res=>{
-      this.totalItem = res.length;
-    })
-  }
-
-  // search(event:any){
-  //   this.searchTerm = (event.target as HTMLInputElement).value;
-  //   // console.log(this.searchTerm);
-  //   this.cartService.search.next(this.searchTerm);
-  // }
-
-  headerNav: HeaderNav[] = [
+  public searchTerm?: string;
+  public searchvalue: any;
+  public headerNav: HeaderNav[] = [
     {
       routerLink: "home",
       ariaLabel: "Home",
@@ -78,7 +62,7 @@ export class AppComponent implements OnInit {
 
   ];
 
-  links: FooterLinks[]  = [
+  public links: FooterLinks[]  = [
     {
       name: 'News',
       link: 'https://www.techradar.com/news/phone-and-communications'
@@ -112,4 +96,15 @@ export class AppComponent implements OnInit {
       link: 'https://www.techradar.com/news/phone-and-communications'
     }
   ];
+
+  constructor(private cartService : CartService) { }
+
+  ngOnInit(): void {
+    this.cartService.getProducts()
+    .subscribe(res => {
+      this.totalItem = res.length;
+    })
+  }
+
+
 }

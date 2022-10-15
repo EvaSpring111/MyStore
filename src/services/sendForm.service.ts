@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Form } from 'src/app/form';
-import { FeedBack } from 'src/app/form';
-import { CartProducts } from 'src/app/form';
+import { Form } from 'src/model/Form.model';
+import { FeedBack } from 'src/model/FeedBack.model';
+
 
 @Injectable()
 export class HttpService{

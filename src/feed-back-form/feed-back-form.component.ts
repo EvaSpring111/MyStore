@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FeedBack, Form } from 'src/app/form';
+import { FeedBack } from 'src/model/FeedBack.model';
 import { FormControl, Validators, FormBuilder} from '@angular/forms';
-
 
 import { HttpService } from 'src/services/sendForm.service';
 
@@ -20,7 +19,6 @@ export class FeedBackFormComponent implements OnInit {
     feedBackText: '',
   });
 
-  feedback = new FeedBack('', 0, '', '');
   receivedDate: FeedBack | undefined;
 
   constructor(
@@ -79,6 +77,7 @@ export class FeedBackFormComponent implements OnInit {
             error: error => console.log(error)
       });
       this.feedbackForm.reset();
+      window.AnimationTimeline
   }
 
 }
